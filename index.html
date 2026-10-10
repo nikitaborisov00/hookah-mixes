@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hookah Sommelier Grand Library | 100 Авторских Миксов</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-dark: #070709;
+            --bg-card: rgba(20, 20, 27, 0.82);
+            --border-glass: rgba(212, 175, 55, 0.15);
+            --border-glow: rgba(212, 175, 55, 0.45);
+            
+            --gold-primary: #d4af37;
+            --gold-light: #f3e5ab;
+            --gold-dark: #aa7c11;
+            
+            --ruby-red: #e63946;
+            --neon-amber: #ff9f1c;
+            --purple-strong: #9d4edd;
+            --craft-teal: #00b4d8;
+            
+            --text-main: #f1f1f5;
+            --text-muted: #9a9ab0;
+            
+            --font-title: 'Cinzel', serif;
+            --font-body: 'Inter', sans-serif;
+            
+            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            background-image: 
+                radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 85% 85%, rgba(230, 57, 70, 0.04) 0%, transparent 40%),
+                radial-gradient(circle at 50% 50%, rgba(12, 12, 16, 0.9) 0%, #070709 100%);
+            background-attachment: fixed;
+            color: var(--text-main);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            padding-bottom: 60px;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #070709;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #252530;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gold-dark);
+        }
+
+        .container {
+            max-width: 1420px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            padding: 45px 0 30px;
+            text-align: center;
+            position: relative;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.18);
+            background: linear-gradient(180deg, rgba(20,20,28,0.75) 0%, rgba(7,7,9,0) 100%);
+        }
+
+        .brand-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 18px;
+            border-radius: 30px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: var(--font-title);
+            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, #ffffff 30%, var(--gold-light) 70%, var(--gold-primary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 12px;
+            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 850px;
+            margin: 0 auto 25px;
+            font-weight: 300;
+        }
+
+        .nav-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .nav-btn {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid var(--border-glass);
+            color: var(--text-muted);
+            padding: 12px 24px;
+            border-radius: 12px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .nav-btn:hover, .nav-btn.active {
+            color: #fff;
+            background: rgba(212, 175, 55, 0.15);
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+            transform: translateY(-2px);
+        }
+
+        .controls-bar {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 20px;
+            margin: 30px 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 18px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .search-box {
+            position: relative;
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .search-box input {
+            width: 100%;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(255,255,255,0.15);
+            padding: 12px 16px 12px 42px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .search-box input:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 10px rgba(212,175,55,0.25);
+        }
+
+        .search-box i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid rgba(255,255,255,0.1);
+            color: var(--text-muted);
+            padding: 8px 16px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--gold-primary);
+            color: #000;
+            border-color: var(--gold-primary);
+            box-shadow: 0 2px 10px rgba(212,175,55,0.3);
+        }
+
+        .gram-calculator-widget {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px solid var(--gold-primary);
+            padding: 8px 16px;
+            border-radius: 10px;
+            flex-wrap: wrap;
+        }
+
+        .gram-calculator-widget label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--gold-light);
+        }
+
+        .gram-calculator-widget input {
+            width: 55px;
+            background: #000;
+            border: 1px solid var(--gold-primary);
+            color: #fff;
+            padding: 6px;
+            border-radius: 6px;
+            text-align: center;
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .gram-presets {
+            display: flex;
+            gap: 4px;
+        }
+
+        .preset-btn {
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.15);
+            color: var(--text-main);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .preset-btn:hover {
+            background: var(--gold-primary);
+            color: #000;
+        }
+
+        .mixes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
+            gap: 25px;
+        }
+
+        .glass-card {
+            background: var(--bg-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border-glass);
+            border-radius: 16px;
+            padding: 24px;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-card:hover {
+            border-color: var(--border-glow);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.12);
+        }
+
+        .mix-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .mix-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            gap: 10px;
+        }
+
+        .mix-id {
+            font-size: 0.75rem;
+            color: var(--gold-primary);
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .mix-title {
+            font-family: var(--font-title);
+            font-size: 1.25rem;
+            color: #fff;
+            line-height: 1.3;
+        }
+
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 4px 10px;
+            border-radius: 20px;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid var(--gold-primary);
+            color: var(--gold-light);
+            font-size: 0.82rem;
+            font-weight: 700;
+            white-space: nowrap;
+        }
+
+        .rating-badge i {
+            color: #ffd700;
+        }
+
+        .mix-concept {
+            font-size: 0.88rem;
+            color: var(--text-muted);
+            font-style: italic;
+            margin-bottom: 16px;
+            min-height: 42px;
+        }
+
+        .strength-meter {
+            margin-bottom: 16px;
+        }
+
+        .strength-meter-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-bottom: 5px;
+        }
+
+        .strength-meter-bar {
+            height: 6px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 3px;
+            overflow: hidden;
+            display: flex;
+        }
+
+        .strength-meter-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.5s ease;
+        }
+
+        .ingredients-list {
+            margin-bottom: 16px;
+            background: rgba(0,0,0,0.35);
+            padding: 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .ingredient-item {
+            margin-bottom: 10px;
+        }
+
+        .ingredient-item:last-child {
+            margin-bottom: 0;
+        }
+
+        .ingredient-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            margin-bottom: 4px;
+        }
+
+        .ingredient-name {
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        .ingredient-brand {
+            color: var(--text-muted);
+            font-size: 0.78rem;
+        }
+
+        .ingredient-amount {
+            font-weight: 700;
+            color: var(--gold-light);
+        }
+
+        .progress-bar-bg {
+            height: 5px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            border-radius: 3px;
+        }
+
+        .craft-base-block {
+            background: rgba(0, 180, 216, 0.08);
+            border: 1px solid rgba(0, 180, 216, 0.3);
+            border-radius: 10px;
+            padding: 12px;
+            margin-bottom: 16px;
+            font-size: 0.82rem;
+        }
+
+        .craft-base-title {
+            color: var(--craft-teal);
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 4px;
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.5px;
+        }
+
+        .craft-base-desc {
+            color: #d1f4ff;
+            line-height: 1.4;
+        }
+
+        .setup-specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            font-size: 0.8rem;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            padding-top: 14px;
+        }
+
+        .spec-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text-muted);
+        }
+
+        .spec-item i {
+            color: var(--gold-primary);
+            width: 16px;
+            text-align: center;
+        }
+
+        .spec-val {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .section-title {
+            font-family: var(--font-title);
+            font-size: 1.8rem;
+            color: #fff;
+            margin: 35px 0 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .section-title::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, rgba(212, 175, 55, 0.4), transparent);
+        }
+
+        .section-title i {
+            color: var(--gold-primary);
+        }
+
+        .brand-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 25px;
+        }
+
+        .brand-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .brand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding-bottom: 10px;
+        }
+
+        .brand-name {
+            font-family: var(--font-title);
+            font-size: 1.35rem;
+            color: var(--gold-light);
+        }
+
+        .brand-origin {
+            font-size: 0.75rem;
+            background: rgba(255,255,255,0.06);
+            padding: 4px 10px;
+            border-radius: 20px;
+            color: var(--text-muted);
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .lines-list {
+            margin-bottom: 12px;
+        }
+
+        .line-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 6px;
+            font-size: 0.88rem;
+        }
+
+        .line-badge {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 2px 8px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        .brand-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 15px;
+            background: rgba(0,0,0,0.3);
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 0.85rem;
+        }
+
+        .meta-label {
+            color: var(--text-muted);
+            display: block;
+            font-size: 0.75rem;
+        }
+
+        .meta-value {
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .protips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+            gap: 25px;
+        }
+
+        @media (max-width: 600px) {
+            .protips-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .tip-card {
+            border-left: 4px solid var(--gold-primary);
+        }
+
+        .tip-card h3 {
+            font-family: var(--font-title);
+            color: var(--gold-light);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .tip-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .tip-card ul {
+            list-style: none;
+        }
+
+        .tip-card li {
+            position: relative;
+            padding-left: 20px;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            font-size: 0.88rem;
+        }
+
+        .tip-card li::before {
+            content: '✦';
+            position: absolute;
+            left: 0;
+            color: var(--gold-primary);
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        footer {
+            margin-top: 70px;
+            text-align: center;
+            padding: 25px 0;
+            border-top: 1px solid rgba(255,255,255,0.08);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <div class="brand-badge"><i class="fa-solid fa-crown"></i> Sommelier Craft Guild</div>
+            <h1>HOOKAH SOMMELIER GRAND LIBRARY</h1>
+            <p class="subtitle">100 Уникальных Авторских Забивок (Крепость 5–10/10), Калькулятор Граммовки и Справочник Табачных Линеек.</p>
+            
+            <div class="nav-tabs">
+                <button class="nav-btn active" onclick="switchTab('mixes')">
+                    <i class="fa-solid fa-flask"></i> Карта Миксов (<span id="totalMixesCount">100</span>)
+                </button>
+                <button class="nav-btn" onclick="switchTab('catalog')">
+                    <i class="fa-solid fa-boxes-stacked"></i> Каталог Табаков
+                </button>
+                <button class="nav-btn" onclick="switchTab('protips')">
+                    <i class="fa-solid fa-fire-burner"></i> Секреты Забивки
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section id="tab-mixes">
+            <div class="controls-bar">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="text" id="mixSearch" placeholder="Поиск по названию, бренду или вкусу..." oninput="filterMixes()">
+                </div>
+
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="setFilter('all', this)">Все (100)</button>
+                    <button class="filter-btn" onclick="setFilter('medium', this)">Medium (5-6)</button>
+                    <button class="filter-btn" onclick="setFilter('strong', this)">Strong (7-8)</button>
+                    <button class="filter-btn" onclick="setFilter('extra', this)">Extra Strong (8.5-9.5)</button>
+                    <button class="filter-btn" onclick="setFilter('overdose', this)">Overdose (10)</button>
+                    <button class="filter-btn" style="border-color: var(--craft-teal); color: var(--craft-teal);" onclick="setFilter('craft', this)"><i class="fa-solid fa-wine-glass"></i> Liquid & Fruit Craft</button>
+                </div>
+
+                <div class="gram-calculator-widget">
+                    <i class="fa-solid fa-scale-balanced" style="color: var(--gold-primary);"></i>
+                    <label for="bowlGram">Вес чаши:</label>
+                    <input type="number" id="bowlGram" value="18" min="5" max="40" oninput="calculateGrams()">
+                    <span style="font-size: 0.85rem; color: var(--gold-light); font-weight: bold;">г</span>
+                    <div class="gram-presets">
+                        <button class="preset-btn" onclick="setGramPreset(15)">15g</button>
+                        <button class="preset-btn" onclick="setGramPreset(18)">18g</button>
+                        <button class="preset-btn" onclick="setGramPreset(20)">20g</button>
+                        <button class="preset-btn" onclick="setGramPreset(25)">25g</button>
+                        <button class="preset-btn" onclick="setGramPreset(30)">30g</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mixes-grid" id="mixesContainer">
+                <!-- Dynamically populated 100 Mixes -->
+            </div>
+        </section>
+
+        <section id="tab-catalog" class="hidden">
+            <div class="section-title">
+                <i class="fa-solid fa-leaf"></i> Каталог Премиальных Брендов & Линеек
+            </div>
+            
+            <div class="brand-grid">
+                <div class="glass-card brand-card">
+                    <div>
+                        <div class="brand-header">
+                            <div class="brand-name">Tangiers</div>
+                            <div class="brand-origin">США 🇺🇸</div>
+                        </div>
+                        <div class="lines-list">
+                            <div class="line-item"><span class="line-badge">Noir</span> <span>Классическая немытая линия (Burley)</span></div>
+                            <div class="line-item"><span class="line-badge" style="background:rgba(157,78,221,0.2); color:var(--purple-strong);">Burley</span> <span>Максимальная крепость и никотиновый удар</span></div>
+                            <div class="line-item"><span class="line-badge" style="background:rgba(0,180,216,0.2); color:var(--craft-teal);">Birquq</span> <span>Мягкая термостойкая линия</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-meta">
+                        <div><span class="meta-label">Сырье:</span><span class="meta-value">Unwashed Tobacco</span></div>
+                        <div><span class="meta-label">Крепость:</span><span class="meta-value">8 - 10 / 10</span></div>
+                    </div>
+                </div>
+
+                <div class="glass-card brand-card">
+                    <div>
+                        <div class="brand-header">
+                            <div class="brand-name">Bonche</div>
+                            <div class="brand-origin">Россия 🇷🇺</div>
+                        </div>
+                        <div class="lines-list">
+                            <div class="line-item"><span class="line-badge" style="background:rgba(157,78,221,0.2); color:var(--purple-strong);">Cigar Selection</span> <span>100% бленд сигарного листа</span></div>
+                            <div class="line-item"><span class="line-badge">Bonche 50</span> <span>Плотная линейка в 50г банках</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-meta">
+                        <div><span class="meta-label">Сырье:</span><span class="meta-value">Cigar Leaf</span></div>
+                        <div><span class="meta-label">Крепость:</span><span class="meta-value">8 - 9.5 / 10</span></div>
+                    </div>
+                </div>
+
+                <div class="glass-card brand-card">
+                    <div>
+                        <div class="brand-header">
+                            <div class="brand-name">Satyr</div>
+                            <div class="brand-origin">Россия 🇷🇺</div>
+                        </div>
+                        <div class="lines-list">
+                            <div class="line-item"><span class="line-badge">Unflavored</span> <span>Ферментированный неоароматизированный лист</span></div>
+                            <div class="line-item"><span class="line-badge" style="background:rgba(255,159,28,0.2); color:var(--neon-amber);">High Aroma</span> <span>Алкогольная выдержка в бочках</span></div>
+                            <div class="line-item"><span class="line-badge" style="background:rgba(230,57,70,0.2); color:var(--ruby-red);">Platinum</span> <span>Премиальные крафтовые коллекции</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-meta">
+                        <div><span class="meta-label">Сырье:</span><span class="meta-value">Burley / Oriental</span></div>
+                        <div><span class="meta-label">Крепость:</span><span class="meta-value">7.5 - 9.5 / 10</span></div>
+                    </div>
+                </div>
+
+                <div class="glass-card brand-card">
+                    <div>
+                        <div class="brand-header">
+                            <div class="brand-name">Element</div>
+                            <div class="brand-origin">Россия 🇷🇺</div>
+                        </div>
+                        <div class="lines-list">
+                            <div class="line-item"><span class="line-badge" style="background:rgba(0,180,216,0.2); color:#00b4d8;">Вода</span> <span>Средняя линия</span></div>
+                            <div class="line-item"><span class="line-badge" style="background:rgba(230,57,70,0.2); color:var(--ruby-red);">Земля</span> <span>Крепкая линия</span></div>
+                            <div class="line-item"><span class="line-badge" style="background:rgba(157,78,221,0.2); color:var(--purple-strong);">Огонь</span> <span>Экстра крепость (Cigar Blend)</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-meta">
+                        <div><span class="meta-label">Сырье:</span><span class="meta-value">Burley/Cigar</span></div>
+                        <div><span class="meta-label">Крепость:</span><span class="meta-value">5 - 9.5 / 10</span></div>
+                    </div>
+                </div>
+
+                <div class="glass-card brand-card">
+                    <div>
+                        <div class="brand-header">
+                            <div class="brand-name">Darkside</div>
+                            <div class="brand-origin">Россия 🇷🇺</div>
+                        </div>
+                        <div class="lines-list">
+                            <div class="line-item"><span class="line-badge">Core</span> <span>Сбалансированная средняя линия</span></div>
+                            <div class="line-item"><span class="line-badge" style="background:rgba(230,57,70,0.2); color:var(--ruby-red);">Rare</span> <span>Повышенная крепость Burley</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-meta">
+                        <div><span class="meta-label">Сырье:</span><span class="meta-value">Burley / Virginia</span></div>
+                        <div><span class="meta-label">Крепость:</span><span class="meta-value">5 - 8 / 10</span></div>
+                    </div>
+                </div>
+
+                <div class="glass-card brand-card">
+                    <div>
+                        <div class="brand-header">
+                            <div class="brand-name">BlackBurn</div>
+                            <div class="brand-origin">Россия 🇷🇺</div>
+                        </div>
+                        <div class="lines-list">
+                            <div class="line-item"><span class="line-badge">Standard</span> <span>Яркая фруктово-ягодная аромка</span></div>
+                            <div class="line-item"><span class="line-badge" style="background:rgba(230,57,70,0.2); color:var(--ruby-red);">Shock</span> <span>Экстремально кислая серия</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-meta">
+                        <div><span class="meta-label">Сырье:</span><span class="meta-value">Toasted Burley</span></div>
+                        <div><span class="meta-label">Крепость:</span><span class="meta-value">6 - 8 / 10</span></div>
+                    </div>
+                </div>
+
+                <div class="glass-card brand-card">
+                    <div>
+                        <div class="brand-header">
+                            <div class="brand-name">Dogma & Sebero Black</div>
+                            <div class="brand-origin">Россия 🇷🇺</div>
+                        </div>
+                        <div class="lines-list">
+                            <div class="line-item"><span class="line-badge">Dogma</span> <span>Сигарное сырье и крафтовая ферментация</span></div>
+                            <div class="line-item"><span class="line-badge" style="background:rgba(230,57,70,0.2); color:var(--ruby-red);">Sebero Black</span> <span>Крепкий плотный Burley бленд</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-meta">
+                        <div><span class="meta-label">Сырье:</span><span class="meta-value">Cigar / Burley</span></div>
+                        <div><span class="meta-label">Крепость:</span><span class="meta-value">7 - 9 / 10</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="tab-protips" class="hidden">
+            <div class="section-title">
+                <i class="fa-solid fa-graduation-cap"></i> Физика Экстракции & Секреты Сомелье
+            </div>
+
+            <div class="protips-grid">
+                <div class="glass-card tip-card">
+                    <h3><i class="fa-solid fa-flask-vial"></i> Термо-Экстракция в Колбе</h3>
+                    <p>Жидкость в колбе — не декор, а инструмент термодинамической экстракции.</p>
+                    <ul>
+                        <li><b>Теплые чайные отвары (40-50°C):</b> Не остужают дым резко, сохраняя тяжелые ароматические эфиры в летучем состоянии.</li>
+                        <li><b>Кислая среда (Соки 1:2):</b> Натуральные фруктовые кислоты подхватывают щелочные компоненты табачного пара, сглаживая жесткий удар по горлу.</li>
+                    </ul>
+                </div>
+
+                <div class="glass-card tip-card">
+                    <h3><i class="fa-solid fa-fire"></i> Плотность & Касание для Burley/Cigar</h3>
+                    <p>Физика работы со сверхкрепкими сортами.</p>
+                    <ul>
+                        <li><b>Легкое Касание (Touch):</b> Верхний слой слегка запекается о калауд, удерживая никотиновую волну внутри чаши на первые 20 минут.</li>
+                        <li><b>Колодец в Эвил-чаше:</b> Сквозное отверстие по центру обеспечивает прямую конвекцию горячего воздуха через весь табачный пирог.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <p><strong>HOOKAH SOMMELIER GRAND LIBRARY</strong> &copy; 2026 | 100 Уникальных Авторских Рецептур</p>
+        </div>
+    </footer>
+
+    <script>
+        const mixesData = [
+            // 1-10
+            { id: 1, name: "Таежный Чай с Бергамотом", rating: 4.9, reviews: 142, category: "medium", strengthNum: 5.5, concept: "Терпкий черный чай с добавлением сосновой хвои и свежего бергамота.", ingredients: [{ brand: "Darkside — Core", flavor: "Bergamonstr", percent: 40, color: "#2ec4b6" }, { brand: "Musthave — Classic", flavor: "Forest Mist", percent: 35, color: "#aa7c11" }, { brand: "Element — Вода", flavor: "Fir", percent: 25, color: "#2a9d8f" }], craftBase: "В колбу: Натуральный горячий отвар чая Эрл Грей (40°C) с палочкой корицы.", hasCraft: true, bowl: "Убивашка (Killer)", type: "Секторами", heat: "3 угля 25mm / Калауд / Прогрев 6 мин" },
+            { id: 2, name: "Гастрономия: Пармезан & Малина", rating: 4.8, reviews: 98, category: "medium", strengthNum: 6.0, concept: "Пикантный соленый сыр, оттененный кислинкой спелой лесной малины.", ingredients: [{ brand: "Spectrum — Kitchen", flavor: "Parmesan", percent: 35, color: "#f3e5ab" }, { brand: "BlackBurn — Standard", flavor: "Raspberry Shock", percent: 45, color: "#e63946" }, { brand: "Musthave — Classic", flavor: "Vanilla Cream", percent: 20, color: "#d4af37" }], craftBase: null, hasCraft: false, bowl: "Турка / Убивашка", type: "Слоями (Сыр вниз)", heat: "3 угля 25mm / Калауд / Прогрев 7 мин" },
+            { id: 3, name: "Копченая Хвоя, Джин & Грейпфрут", rating: 4.95, reviews: 184, category: "strong", strengthNum: 7.8, concept: "Брутальный алкогольно-хвойный микс с дымностью и горьковатым цитрусовым финишем.", ingredients: [{ brand: "Satyr — High Aroma", flavor: "Jäger", percent: 35, color: "#3d2b1f" }, { brand: "Element — Земля", flavor: "Fir", percent: 35, color: "#2a9d8f" }, { brand: "Darkside — Rare", flavor: "Grapefruit", percent: 30, color: "#e63946" }], craftBase: "Чаша: Свежий грейпфрут вместо глины. Сок дает плотную естественную кислинку.", hasCraft: true, bowl: "Фруктовая чаша (Грейпфрут)", type: "Секторами", heat: "3-4 угля 25mm / Калауд / Прогрев 8 мин" },
+            { id: 4, name: "Сигарный Лист & Чернослив со Специями", rating: 4.9, reviews: 112, category: "strong", strengthNum: 8.0, concept: "Благородный кубинский сигарный профиль с нотами вяленого чернослива и гвоздики.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Plum", percent: 50, color: "#3d2b1f" }, { brand: "Darkside — Rare", flavor: "Darkside Cookie", percent: 30, color: "#aa7c11" }, { brand: "Musthave — Classic", flavor: "Cinnamon", percent: 20, color: "#e63946" }], craftBase: null, hasCraft: false, bowl: "Турка из толстой глины", type: "Плотный оверпак", heat: "4 угля 22mm / Фольга + Кольцо / Прогрев 8 мин" },
+            { id: 5, name: "Копченый Бурбон & Печеный Персик", rating: 4.85, reviews: 76, category: "strong", strengthNum: 8.2, concept: "Глубокий бархатистый алкогольный профиль выдержанного бурбона с персиком.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Whisky", percent: 45, color: "#aa7c11" }, { brand: "Element — Земля", flavor: "Peach", percent: 35, color: "#ff9f1c" }, { brand: "Satyr — Unflavored", flavor: "Black Jack", percent: 20, color: "#3d2b1f" }], craftBase: "В колбу: Натуральный сок персика с водой 1:2 + 2 звездочки бадьяна.", hasCraft: true, bowl: "Убивашка (Killer)", type: "Воздушно в легкое касание", heat: "3 угля 25mm / Калауд / Прогрев 7 мин" },
+            { id: 6, name: "Клюквенный Глинтвейн & Кориандовый Дым", rating: 4.92, reviews: 135, category: "strong", strengthNum: 8.4, concept: "Крепкий терпкий зимний замес: кислая клюква, пряный глинтвейн и сигарный лист.", ingredients: [{ brand: "BlackBurn — Shock", flavor: "Cranberry Shock", percent: 40, color: "#e63946" }, { brand: "Bonche — Cigar Selection", flavor: "Base Cigar", percent: 40, color: "#3d2b1f" }, { brand: "Musthave — Classic", flavor: "Mulled Wine", percent: 20, color: "#9d4edd" }], craftBase: "В колбу: Теплый отвар каркаде с бутонами гвоздики и палочкой корицы.", hasCraft: true, bowl: "Традиционная Турка", type: "Секторная укладка", heat: "3 угля 25mm / Калауд / Прогрев 7 мин" },
+            { id: 7, name: "Черная Смородина, Деготь & Можжевельник", rating: 4.88, reviews: 92, category: "strong", strengthNum: 8.5, concept: "Суровый лесной микс с нотами можжевеловой бочки, терпкой смородины и хвои.", ingredients: [{ brand: "Satyr — High Aroma", flavor: "Wild Berry", percent: 45, color: "#9d4edd" }, { brand: "Element — Земля", flavor: "Pine", percent: 35, color: "#2a9d8f" }, { brand: "Darkside — Rare", flavor: "Blackcurrant", percent: 20, color: "#e63946" }], craftBase: "Чаша: Слайсы цедры лимона и раздавленные ягоды можжевельника под табак.", hasCraft: true, bowl: "Глиняная Турка", type: "Воздушно с колодцем", heat: "3 угля 25mm / Калауд / Прогрев 6 мин" },
+            { id: 8, name: "Улун Те Гуаньинь & Сигарный Гранат", rating: 4.96, reviews: 210, category: "extra", strengthNum: 8.8, concept: "Изысканный тандем дорогого китайского чая, терпкого гранатового сока и табака.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Pomegranate", percent: 50, color: "#e63946" }, { brand: "Element — Земля", flavor: "Thai Tea", percent: 30, color: "#aa7c11" }, { brand: "Satyr — Unflavored", flavor: "Burley", percent: 20, color: "#3d2b1f" }], craftBase: "В колбу: Свежезаваренный зелёный чай Улун (45°C) + 50мл гранатового фреша.", hasCraft: true, bowl: "Убивашка", type: "Плотное касание", heat: "4 угля 22mm / Калауд / Прогрев 7 мин" },
+            { id: 9, name: "Двойной Эспрессо & Темный Ирландский Стаут", rating: 4.9, reviews: 104, category: "extra", strengthNum: 9.0, concept: "Крепкий свежесваренный эспрессо, шоколадный солод и кубинская сигара.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Coffee", percent: 45, color: "#3d2b1f" }, { brand: "Satyr — High Aroma", flavor: "Guinness", percent: 35, color: "#aa7c11" }, { brand: "Darkside — Rare", flavor: "Falling Star", percent: 20, color: "#9d4edd" }], craftBase: "В колбу: 2 шота двойного эспрессо с теплой водой (40°C) для аромата.", hasCraft: true, bowl: "Эвил (Evil Bowl)", type: "Воздушно с плотной горкой", heat: "4 угля 22mm / Калауд / Прогрев 8 мин" },
+            { id: 10, name: "Дикий Грейпфрут & Разъяренный Бергамот", rating: 4.87, reviews: 88, category: "extra", strengthNum: 9.0, concept: "Кислый ультра-крепкий взрыв: горьковатый грейпфрут и тяжелый табачный фон.", ingredients: [{ brand: "Darkside — Rare", flavor: "Bergamonstr", percent: 40, color: "#2ec4b6" }, { brand: "BlackBurn — Shock", flavor: "Grapefruit Shock", percent: 40, color: "#e63946" }, { brand: "Element — Огонь", flavor: "Cigar Base", percent: 20, color: "#3d2b1f" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Плотная укладка с касанием", heat: "3-4 угля 25mm / Калауд / Прогрев 7 мин" },
+
+            // 11-20
+            { id: 11, name: "Cigar-Doha Knockout: Бурбон & Шоколад", rating: 4.98, reviews: 260, category: "extra", strengthNum: 9.5, concept: "Сигарный удар максимальной мощности с привкусом бурбона и горького шоколада.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Whisky", percent: 50, color: "#3d2b1f" }, { brand: "Satyr — Unflavored", flavor: "Bro", percent: 35, color: "#aa7c11" }, { brand: "Spectrum — Kitchen", flavor: "Spicy Cheese", percent: 15, color: "#f3e5ab" }], craftBase: null, hasCraft: false, bowl: "Убивашка / Эвил", type: "Плотная забивка с горкой", heat: "4 угля 25mm / Фольга + Калауд / Прогрев 8 мин" },
+            { id: 12, name: "Копченая Вишня в Ромовой Бочке", rating: 4.91, reviews: 147, category: "extra", strengthNum: 9.2, concept: "Плотный вишневый сок в дубовой бочке из-под темного кубинского рома.", ingredients: [{ brand: "Satyr — High Aroma", flavor: "Rum Cherry", percent: 50, color: "#e63946" }, { brand: "Bonche — Cigar Selection", flavor: "Vintage Cherry", percent: 35, color: "#3d2b1f" }, { brand: "Element — Огонь", flavor: "Wood", percent: 15, color: "#aa7c11" }], craftBase: "Чаша: Свежие ягоды вишни без косточек раздавлены на дно глиняной чаши.", hasCraft: true, bowl: "Турка из плотной глины", type: "Оверпак с колодцем", heat: "4 угля 22mm / Калауд / Прогрев 8 мин" },
+            { id: 13, name: "Тропический Драгонфрут & Острый Чили", rating: 4.82, reviews: 65, category: "extra", strengthNum: 8.8, concept: "Экзотический драгонфрут с обжигающей пикантной нотой перца чили.", ingredients: [{ brand: "Element — Земля", flavor: "Pitaya", percent: 45, color: "#9d4edd" }, { brand: "Darkside — Rare", flavor: "Generous Chilli", percent: 25, color: "#e63946" }, { brand: "Bonche — Cigar Selection", flavor: "Passion Fruit", percent: 30, color: "#ff9f1c" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Воздушно с касанием", heat: "3 угля 25mm / Калауд / Прогрев 6 мин" },
+            { id: 14, name: "Ананасовый Экспресс: Розмарин & Сигара", rating: 4.93, reviews: 155, category: "extra", strengthNum: 9.1, concept: "Кисло-сладкий ананас с розмарином и доминиканским сигарным блендом.", ingredients: [{ brand: "BlackBurn — Shock", flavor: "Pineapple Shock", percent: 40, color: "#ff9f1c" }, { brand: "Bonche — Cigar Selection", flavor: "Base Cigar", percent: 40, color: "#3d2b1f" }, { brand: "Element — Земля", flavor: "Rosemary", percent: 20, color: "#2ec4b6" }], craftBase: "В колбу: Натуральный ананасовый сок со свежей веточкой розмарина.", hasCraft: true, bowl: "Чаша из Ананаса или Турка", type: "Секторная укладка", heat: "4 угля 22mm / Калауд / Прогрев 8 мин" },
+            { id: 15, name: "Тайский Манго & Чили Кисляк", rating: 4.89, reviews: 110, category: "strong", strengthNum: 7.5, concept: "Сочный спелый желтый манго с острой стручковой перечностью на послевкусии.", ingredients: [{ brand: "Musthave — Classic", flavor: "Mango Juice", percent: 50, color: "#ff9f1c" }, { brand: "BlackBurn — Shock", flavor: "Lemon Shock", percent: 30, color: "#d4af37" }, { brand: "Darkside — Rare", flavor: "Generous Chilli", percent: 20, color: "#e63946" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 16, name: "Пряный Лемонграсс & Имбирный Эль", rating: 4.84, reviews: 82, category: "medium", strengthNum: 5.8, concept: "Освежающе-пряный цитрусовый микс с остринкой имбиря и лемонграссом.", ingredients: [{ brand: "Spectrum — Classic", flavor: "Gingerbread", percent: 30, color: "#aa7c11" }, { brand: "Element — Вода", flavor: "Lemongrass", percent: 45, color: "#2ec4b6" }, { brand: "Darkside — Core", flavor: "Supernova", percent: 25, color: "#00b4d8" }], craftBase: "В колбу: Минеральная вода с корнем имбиря и долькой лайма.", hasCraft: true, bowl: "Убивашка", type: "Секторами", heat: "3 угля 25mm / 6 мин" },
+            { id: 17, name: "Фисташковый Джелато & Кардамон", rating: 4.91, reviews: 120, category: "medium", strengthNum: 6.0, concept: "Сливочно-ореховое фисташковое мороженое с пряным восточным кардамоном.", ingredients: [{ brand: "Musthave — Classic", flavor: "Pistachio", percent: 50, color: "#2a9d8f" }, { brand: "Spectrum — Kitchen", flavor: "Cardamom", percent: 20, color: "#f3e5ab" }, { brand: "Chabacco — Medium", flavor: "Milk", percent: 30, color: "#d4af37" }], craftBase: null, hasCraft: false, bowl: "Фаннел (Phunnel)", type: "Плотный колодец", heat: "3 угля 25mm / 7 мин" },
+            { id: 18, name: "Маракуйя, Гуава & Дымный Тархун", rating: 4.86, reviews: 90, category: "strong", strengthNum: 7.2, concept: "Тропический взрыв кислинки маракуйи с травянистым анисовым тархуном.", ingredients: [{ brand: "Darkside — Rare", flavor: "Passion Fruit", percent: 40, color: "#ff9f1c" }, { brand: "Element — Земля", flavor: "Tarragon", percent: 35, color: "#2a9d8f" }, { brand: "BlackBurn — Standard", flavor: "Guava", percent: 25, color: "#e63946" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 19, name: "Черничный Пирог с Лавандой", rating: 4.88, reviews: 105, category: "medium", strengthNum: 5.5, concept: "Выпечка из песочного теста с северной черникой и ароматной лавандой.", ingredients: [{ brand: "Musthave — Classic", flavor: "Blueberry", percent: 45, color: "#9d4edd" }, { brand: "Spectrum — Classic", flavor: "Lavender", percent: 25, color: "#2ec4b6" }, { brand: "Darkside — Core", flavor: "Cookie", percent: 30, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Средняя плотность", heat: "3 угля 25mm / 7 мин" },
+            { id: 20, name: "Дубовый Портвейн & Темный Слив", rating: 4.95, reviews: 175, category: "extra", strengthNum: 8.9, concept: "Тяжелый глубокий бархатистый вкус выдержанного портвейна и терпкого слива.", ingredients: [{ brand: "Satyr — High Aroma", flavor: "Porto", percent: 45, color: "#3d2b1f" }, { brand: "Bonche — Cigar Selection", flavor: "Plum", percent: 35, color: "#9d4edd" }, { brand: "Element — Огонь", flavor: "Oak", percent: 20, color: "#aa7c11" }], craftBase: "В колбу: Натуральный сок темного винограда с водой 1:1.", hasCraft: true, bowl: "Убивашка", type: "Плотный оверпак", heat: "4 угля 22mm / 8 мин" },
+
+            // 21-30
+            { id: 21, name: "Лаосский Лайм & Кислая Бузина", rating: 4.83, reviews: 74, category: "strong", strengthNum: 7.4, concept: "Агрессивный кисло-свежий цитрусовый профиль со спелой северной бузиной.", ingredients: [{ brand: "BlackBurn — Shock", flavor: "Lemon Shock", percent: 45, color: "#d4af37" }, { brand: "Darkside — Rare", flavor: "Elderberry", percent: 35, color: "#9d4edd" }, { brand: "Musthave — Classic", flavor: "Ice Mint", percent: 20, color: "#00b4d8" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Секторами", heat: "3 угля 25mm / 6 мин" },
+            { id: 22, name: "Мексиканский Начос & Томатный Гозе", rating: 4.92, reviews: 160, category: "extra", strengthNum: 8.6, concept: "Гастрономический эксцесс: соленый томат со специями, орегано и сигарой.", ingredients: [{ brand: "Spectrum — Kitchen", flavor: "Gazpacho", percent: 45, color: "#e63946" }, { brand: "Satyr — Unflavored", flavor: "Jalisco", percent: 35, color: "#aa7c11" }, { brand: "Element — Земля", flavor: "Basil", percent: 20, color: "#2a9d8f" }], craftBase: "В колбу: Томатный фреш без мякоти, разбавленный минералкой с щепоткой соли.", hasCraft: true, bowl: "Убивашка", type: "Касание", heat: "3 угля 25mm / 7 мин" },
+            { id: 23, name: "Танж Какао & Мятный Шоколад", rating: 4.97, reviews: 290, category: "overdose", strengthNum: 10.0, concept: "Убойный черный немытый табак Tangiers со вкусом густого темного какао и мяты.", ingredients: [{ brand: "Tangiers — Burley", flavor: "Cocoa", percent: 50, color: "#3d2b1f" }, { brand: "Tangiers — Noir", flavor: "Cane Mint", percent: 30, color: "#2ec4b6" }, { brand: "Darkside — Rare", flavor: "Dark Ice Cream", percent: 20, color: "#d4af37" }], craftBase: null, hasCraft: false, bowl: "Апгрейд Форма (Clay)", type: "Воздушно с касанием", heat: "4 угля 25mm / 9 мин" },
+            { id: 24, name: "Копченый Бекон & Кленовый Сироп", rating: 4.81, reviews: 68, category: "strong", strengthNum: 7.9, concept: "Канадский завтрак: жареный хрустящий бекон в сладкой глазури кленового сиропа.", ingredients: [{ brand: "Spectrum — Kitchen", flavor: "Bacon", percent: 40, color: "#e63946" }, { brand: "Musthave — Classic", flavor: "Maple Syrup", percent: 40, color: "#aa7c11" }, { brand: "Satyr — High Aroma", flavor: "Bacon Crisp", percent: 20, color: "#3d2b1f" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Слоями", heat: "3 угля 25mm / 7 мин" },
+            { id: 25, name: "Дымная Облепиха & Имбирный Мёд", rating: 4.87, reviews: 98, category: "medium", strengthNum: 5.9, concept: "Согревающая дикая облепиха с пряным липовым мёдом и жгучим имбирем.", ingredients: [{ brand: "Musthave — Classic", flavor: "Sea Buckthorn", percent: 50, color: "#ff9f1c" }, { brand: "Spectrum — Classic", flavor: "Honey", percent: 25, color: "#d4af37" }, { brand: "Element — Вода", flavor: "Ginger", percent: 25, color: "#aa7c11" }], craftBase: "В колбу: Теплый облепиховый чай с ложкой натурального мёда.", hasCraft: true, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 26, name: "Клюквенный Мохито & Сигарный Ром", rating: 4.9, reviews: 115, category: "strong", strengthNum: 8.1, concept: "Тропический ром, кислая садовая клюква, толченый лайм и кубинский лист.", ingredients: [{ brand: "Satyr — High Aroma", flavor: "Rum", percent: 40, color: "#aa7c11" }, { brand: "BlackBurn — Shock", flavor: "Cranberry Shock", percent: 40, color: "#e63946" }, { brand: "Musthave — Classic", flavor: "Morocco Lime", percent: 20, color: "#2ec4b6" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Секторами", heat: "3 угля 25mm / 7 мин" },
+            { id: 27, name: "Гранат, Хвоя & Дикая Малина", rating: 4.93, reviews: 140, category: "strong", strengthNum: 7.7, concept: "Терпкий гранатовый сок с морозной сосновой лапой и дикой малиной.", ingredients: [{ brand: "Element — Земля", flavor: "Pomegranate", percent: 40, color: "#e63946" }, { brand: "Darkside — Rare", flavor: "Needles", percent: 35, color: "#2a9d8f" }, { brand: "Musthave — Classic", flavor: "Raspberry", percent: 25, color: "#9d4edd" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 28, name: "Какао Бобы, Чили & Ванильный Бурбон", rating: 4.94, reviews: 165, category: "extra", strengthNum: 9.3, concept: "Горький шоколад по-ацтекски с жгучим перцем и сигарной выдержкой.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Cacao", percent: 45, color: "#3d2b1f" }, { brand: "Satyr — High Aroma", flavor: "Bourbon", percent: 35, color: "#aa7c11" }, { brand: "Darkside — Rare", flavor: "Generous Chilli", percent: 20, color: "#e63946" }], craftBase: "В колбу: Натуральное какао на воде с палочкой корицы.", hasCraft: true, bowl: "Эвил", type: "Плотный колодец", heat: "4 угля 22mm / 8 мин" },
+            { id: 29, name: "Лимонный Пирог с Розмарином", rating: 4.85, reviews: 88, category: "medium", strengthNum: 5.7, concept: "Песочная корзинка со сливочным лимонным курдом и пряной иголочкой розмарина.", ingredients: [{ brand: "Musthave — Classic", flavor: "Lemon Pie", percent: 50, color: "#f3e5ab" }, { brand: "Element — Вода", flavor: "Rosemary", percent: 25, color: "#2ec4b6" }, { brand: "Chabacco — Medium", flavor: "Cookie", percent: 25, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Средняя", heat: "3 угля 25mm / 6 мин" },
+            { id: 30, name: "Tangiers Ololiuqui & Ледяной Лайм", rating: 4.98, reviews: 310, category: "overdose", strengthNum: 10.0, concept: "Эксклюзивный табачный профиль со вкусом мармеладной колы с лаймом и дохой.", ingredients: [{ brand: "Tangiers — Burley", flavor: "Ololiuqui", percent: 60, color: "#3d2b1f" }, { brand: "BlackBurn — Shock", flavor: "Lemon Shock", percent: 25, color: "#d4af37" }, { brand: "Darkside — Rare", flavor: "Supernova", percent: 15, color: "#00b4d8" }], craftBase: null, hasCraft: false, bowl: "Турка Гармония", type: "Воздушно с касанием", heat: "4 угля 25mm / 9 мин" },
+
+            // 31-40
+            { id: 31, name: "Дыня, Папайя & Жгучий Васаби", rating: 4.82, reviews: 70, category: "strong", strengthNum: 7.6, concept: "Сладкая азиатская дыня с папайей и острой нотой японского васаби.", ingredients: [{ brand: "Musthave — Classic", flavor: "Melona", percent: 40, color: "#f3e5ab" }, { brand: "Spectrum — Kitchen", flavor: "Wasabi", percent: 25, color: "#2a9d8f" }, { brand: "Element — Земля", flavor: "Papaya", percent: 35, color: "#ff9f1c" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Секторами", heat: "3 угля 25mm / 6 мин" },
+            { id: 32, name: "Зеленый Базилик & Кислый Киви", rating: 4.86, reviews: 92, category: "medium", strengthNum: 6.0, concept: "Свежий травянистый базилик с мохнатым кислым киви и мятой.", ingredients: [{ brand: "Element — Вода", flavor: "Basil", percent: 45, color: "#2a9d8f" }, { brand: "BlackBurn — Standard", flavor: "Kiwi", percent: 35, color: "#2ec4b6" }, { brand: "Darkside — Core", flavor: "Supernova", percent: 20, color: "#00b4d8" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 33, name: "Инжир, Медовая Груша & Сигара", rating: 4.91, reviews: 130, category: "extra", strengthNum: 8.7, concept: "Вяленый восточный инжир со спелой грушей на кубинском сигарном листе.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Fig", percent: 45, color: "#3d2b1f" }, { brand: "Musthave — Classic", flavor: "Pear", percent: 35, color: "#d4af37" }, { brand: "Satyr — Unflavored", flavor: "Burley", percent: 20, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Оверпак", heat: "4 угля 22mm / 8 мин" },
+            { id: 34, name: "Ржаной Хлеб, Квас & Тмин", rating: 4.89, reviews: 118, category: "strong", strengthNum: 7.8, concept: "Аутентичный русский гастро-микс: корочка ржаного хлеба и домашний квас.", ingredients: [{ brand: "Spectrum — Kitchen", flavor: "Rye Bread", percent: 50, color: "#aa7c11" }, { brand: "Satyr — High Aroma", flavor: "Kvas", percent: 35, color: "#3d2b1f" }, { brand: "Element — Земля", flavor: "Caraway", percent: 15, color: "#2a9d8f" }], craftBase: "В колбу: Натуральный фильтрованный хлебный квас.", hasCraft: true, bowl: "Убивашка", type: "Плотный оверпак", heat: "3 угля 25mm / 7 мин" },
+            { id: 35, name: "Тропический Рамбутан & Кактус", rating: 4.84, reviews: 78, category: "medium", strengthNum: 5.6, concept: "Сладкий азиатский рамбутан с травянистой свежестью сока кактуса.", ingredients: [{ brand: "Musthave — Classic", flavor: "Rambutan", percent: 50, color: "#e63946" }, { brand: "Darkside — Core", flavor: "Cactus", percent: 35, color: "#2ec4b6" }, { brand: "Chabacco — Medium", flavor: "Ice", percent: 15, color: "#00b4d8" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 36, name: "Tangiers Kashmir Peach & Специи", rating: 4.96, reviews: 245, category: "overdose", strengthNum: 9.8, concept: "Легендарный кашмирский персик Tangiers с восточными специями и дохой.", ingredients: [{ brand: "Tangiers — Noir", flavor: "Kashmir Peach", percent: 60, color: "#aa7c11" }, { brand: "Element — Огонь", flavor: "Cigar Base", percent: 25, color: "#3d2b1f" }, { brand: "Musthave — Classic", flavor: "Cinnamon", percent: 15, color: "#e63946" }], craftBase: null, hasCraft: false, bowl: "Глиняная Турка", type: "Плотное касание", heat: "4 угля 22mm / 9 мин" },
+            { id: 37, name: "Красная Смородина & Тархун-Газировка", rating: 4.83, reviews: 81, category: "strong", strengthNum: 7.3, concept: "Кислая садовая смородина с шипучим эстрагоновым лимонадом.", ingredients: [{ brand: "BlackBurn — Shock", flavor: "Red Currant Shock", percent: 45, color: "#e63946" }, { brand: "Darkside — Core", flavor: "Tarragon", percent: 35, color: "#2a9d8f" }, { brand: "Musthave — Classic", flavor: "Sparkling Water", percent: 20, color: "#00b4d8" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 38, name: "Шоколадный Брауни с Перцем Чили", rating: 4.88, reviews: 102, category: "strong", strengthNum: 8.0, concept: "Плотный влажный шоколадный кекс со жгучим послевкусием чили.", ingredients: [{ brand: "Musthave — Classic", flavor: "Choco Muffin", percent: 45, color: "#3d2b1f" }, { brand: "Darkside — Rare", flavor: "Generous Chilli", percent: 25, color: "#e63946" }, { brand: "Element — Земля", flavor: "Nut", percent: 30, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Слоями", heat: "3 угля 25mm / 7 мин" },
+            { id: 39, name: "Соленый Попкорн & Сливочная Карамель", rating: 4.85, reviews: 95, category: "medium", strengthNum: 5.8, concept: "Теплый киношный попкорн с морской солью и тягучей карамелью.", ingredients: [{ brand: "Spectrum — Kitchen", flavor: "Popcorn", percent: 50, color: "#f3e5ab" }, { brand: "Musthave — Classic", flavor: "Caramel", percent: 30, color: "#aa7c11" }, { brand: "Chabacco — Medium", flavor: "Salted Cream", percent: 20, color: "#d4af37" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Плотный", heat: "3 угля 25mm / 6 мин" },
+            { id: 40, name: "Сигарный Дым & Выдержанный Коньяк", rating: 4.95, reviews: 190, category: "extra", strengthNum: 9.4, concept: "Классический джентльменский сет: дубовый коньяк и отборный сигарный лист.", ingredients: [{ brand: "Satyr — High Aroma", flavor: "Cognac", percent: 50, color: "#3d2b1f" }, { brand: "Bonche — Cigar Selection", flavor: "Base Cigar", percent: 35, color: "#aa7c11" }, { brand: "Element — Огонь", flavor: "Vanilla", percent: 15, color: "#f3e5ab" }], craftBase: "В колбу: 50мл коньяка в теплую воду.", hasCraft: true, bowl: "Убивашка", type: "Оверпак", heat: "4 угля 22mm / 8 мин" },
+
+            // 41-50
+            { id: 41, name: "Маракуйя, Вербена & Белый Чай", rating: 4.87, reviews: 86, category: "medium", strengthNum: 5.9, concept: "Тонкий аромат белого чайного листа с тропической маракуйей.", ingredients: [{ brand: "Element — Вода", flavor: "White Tea", percent: 45, color: "#2ec4b6" }, { brand: "Darkside — Core", flavor: "Passion Fruit", percent: 35, color: "#ff9f1c" }, { brand: "Spectrum — Classic", flavor: "Verbena", percent: 20, color: "#2a9d8f" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 42, name: "Гуава, Папайя & Кубинская Доха", rating: 4.97, reviews: 275, category: "overdose", strengthNum: 10.0, concept: "Убойная тропическая смесь с невероятным никотиновым ударом.", ingredients: [{ brand: "Tangiers — Burley", flavor: "Tropical Punch", percent: 50, color: "#3d2b1f" }, { brand: "BlackBurn — Standard", flavor: "Guava", percent: 35, color: "#e63946" }, { brand: "Darkside — Rare", flavor: "Supernova", percent: 15, color: "#00b4d8" }], craftBase: null, hasCraft: false, bowl: "Эвил", type: "Горка с касанием", heat: "4 угля 25mm / 8 мин" },
+            { id: 43, name: "Мангостиновый Фреш & Розовая Вода", rating: 4.84, reviews: 72, category: "strong", strengthNum: 7.1, concept: "Нежный азиатский мангостин с ароматно-парфюмированной розовой водой.", ingredients: [{ brand: "Musthave — Classic", flavor: "Mangosteen", percent: 50, color: "#9d4edd" }, { brand: "Spectrum — Classic", flavor: "Rose", percent: 25, color: "#e63946" }, { brand: "Element — Земля", flavor: "Ice", percent: 25, color: "#00b4d8" }], craftBase: "В колбу: Натуральная розовая вода с долькой лимона.", hasCraft: true, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 44, name: "Острая Васаби-Слива & Дым", rating: 4.9, reviews: 114, category: "strong", strengthNum: 8.2, concept: "Плотная спелая слива с пронзительной перечностью острого васаби.", ingredients: [{ brand: "Spectrum — Kitchen", flavor: "Wasabi", percent: 30, color: "#2a9d8f" }, { brand: "Bonche — Cigar Selection", flavor: "Plum", percent: 45, color: "#3d2b1f" }, { brand: "Darkside — Rare", flavor: "Wildberry", percent: 25, color: "#9d4edd" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Секторами", heat: "3 угля 25mm / 7 мин" },
+            { id: 45, name: "Фирменный Крамбл: Эспрессо & Орех", rating: 4.89, reviews: 108, category: "medium", strengthNum: 6.0, concept: "Хрустящий ореховый крамбл со свежим эспрессо и корицей.", ingredients: [{ brand: "Musthave — Classic", flavor: "Nut Cake", percent: 45, color: "#aa7c11" }, { brand: "Darkside — Core", flavor: "Coffee Shake", percent: 35, color: "#3d2b1f" }, { brand: "Spectrum — Kitchen", flavor: "Cinnamon Roll", percent: 20, color: "#f3e5ab" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Плотный", heat: "3 угля 25mm / 6 мин" },
+            { id: 46, name: "Дикая Облепиха, Имбирь & Сигара", rating: 4.92, reviews: 142, category: "extra", strengthNum: 8.9, concept: "Терпкая кислая облепиха с пряным имбирем и тяжелым сигарным листом.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Base Cigar", percent: 40, color: "#3d2b1f" }, { brand: "Musthave — Classic", flavor: "Sea Buckthorn", percent: 40, color: "#ff9f1c" }, { brand: "Element — Земля", flavor: "Ginger", percent: 20, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Оверпак", heat: "4 угля 22mm / 8 мин" },
+            { id: 47, name: "Гранат-Кислинка & Ледяной Эвкалипт", rating: 4.86, reviews: 89, category: "strong", strengthNum: 7.5, concept: "Взрывной терпкий гранат с сильным охлаждающим эвкалиптовым потоком.", ingredients: [{ brand: "BlackBurn — Shock", flavor: "Pomegranate Shock", percent: 50, color: "#e63946" }, { brand: "Darkside — Rare", flavor: "Eucalyptus", percent: 30, color: "#2ec4b6" }, { brand: "Element — Земля", flavor: "Mint", percent: 20, color: "#00b4d8" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 48, name: "Дымный Тархун, Лайм & Ром", rating: 4.88, reviews: 97, category: "strong", strengthNum: 7.9, concept: "Алкогольный травянистый коктейль на базе темного выдержанного рома.", ingredients: [{ brand: "Satyr — High Aroma", flavor: "Rum", percent: 40, color: "#3d2b1f" }, { brand: "Element — Земля", flavor: "Tarragon", percent: 35, color: "#2a9d8f" }, { brand: "Musthave — Classic", flavor: "Morocco Lime", percent: 25, color: "#2ec4b6" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Секторами", heat: "3 угля 25mm / 7 мин" },
+            { id: 49, name: "Tangiers Bacon & Сигарный Клен", rating: 4.99, reviews: 330, category: "overdose", strengthNum: 10.0, concept: "Экстремальный немытый бленд: жареный бекон с кленом и жестким Tangiers.", ingredients: [{ brand: "Tangiers — Burley", flavor: "Bacon", percent: 50, color: "#3d2b1f" }, { brand: "Musthave — Classic", flavor: "Maple Syrup", percent: 30, color: "#aa7c11" }, { brand: "Bonche — Cigar Selection", flavor: "Base Cigar", percent: 20, color: "#e63946" }], craftBase: null, hasCraft: false, bowl: "Убивашка Апгрейд", type: "Воздушно с касанием", heat: "4 угля 25mm / 9 мин" },
+            { id: 50, name: "Клюквенный Мармелад & Кедр", rating: 4.85, reviews: 76, category: "medium", strengthNum: 5.9, concept: "Сладковато-кислый мармелад из дикой клюквы с кедровым смолистым оттенком.", ingredients: [{ brand: "Musthave — Classic", flavor: "Cranberry", percent: 45, color: "#e63946" }, { brand: "Spectrum — Classic", flavor: "Forest", percent: 30, color: "#2a9d8f" }, { brand: "Chabacco — Medium", flavor: "Gummy Bear", percent: 25, color: "#9d4edd" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Средняя", heat: "3 угля 25mm / 6 мин" },
+
+            // 51-60
+            { id: 51, name: "Гуава, Розовый Пепел & Бергамот", rating: 4.87, reviews: 84, category: "strong", strengthNum: 7.7, concept: "Парфюмированная кислая гуава с сухим бергамотом и табачной пепельностью.", ingredients: [{ brand: "Darkside — Rare", flavor: "Bergamonstr", percent: 40, color: "#2ec4b6" }, { brand: "BlackBurn — Standard", flavor: "Guava", percent: 40, color: "#e63946" }, { brand: "Satyr — Unflavored", flavor: "Black Jack", percent: 20, color: "#3d2b1f" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 52, name: "Пикантный Гаспачо & Острый Васаби", rating: 4.93, reviews: 150, category: "extra", strengthNum: 8.8, concept: "Холодный испанский томатный суп с острой ядреной хреновой нотой.", ingredients: [{ brand: "Spectrum — Kitchen", flavor: "Gazpacho", percent: 50, color: "#e63946" }, { brand: "Spectrum — Kitchen", flavor: "Wasabi", percent: 25, color: "#2a9d8f" }, { brand: "Bonche — Cigar Selection", flavor: "Base Cigar", percent: 25, color: "#3d2b1f" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Касание", heat: "3 угля 25mm / 7 мин" },
+            { id: 53, name: "Вишневый Доктор Пеппер & Кола", rating: 4.88, reviews: 102, category: "medium", strengthNum: 6.0, concept: "Пряная газировка Dr Pepper с косточкой вишни и прохладой.", ingredients: [{ brand: "Musthave — Classic", flavor: "Cherry Cola", percent: 50, color: "#e63946" }, { brand: "Darkside — Core", flavor: "Cola", percent: 30, color: "#aa7c11" }, { brand: "Spectrum — Classic", flavor: "Spicy Cola", percent: 20, color: "#9d4edd" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 54, name: "Сигарный Дым & Черный Трюфель", rating: 4.96, reviews: 198, category: "extra", strengthNum: 9.3, concept: "Аристократическая гастрономия: дорогой трюфель на благородной сигаре.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Base Cigar", percent: 50, color: "#3d2b1f" }, { brand: "Spectrum — Kitchen", flavor: "Truffle", percent: 30, color: "#aa7c11" }, { brand: "Satyr — Unflavored", flavor: "Burley", percent: 20, color: "#2a9d8f" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Плотный колодец", heat: "4 угля 22mm / 8 мин" },
+            { id: 55, name: "Лимонный Сорбет & Мята Бузина", rating: 4.84, reviews: 78, category: "strong", strengthNum: 7.2, concept: "Освежающий кислый ледяной сорбет из сицилийских лимонов.", ingredients: [{ brand: "BlackBurn — Shock", flavor: "Lemon Shock", percent: 45, color: "#d4af37" }, { brand: "Musthave — Classic", flavor: "Elderberry", percent: 35, color: "#9d4edd" }, { brand: "Darkside — Core", flavor: "Supernova", percent: 20, color: "#00b4d8" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 56, name: "Tangiers Cane Mint & Шотландский Виски", rating: 4.98, reviews: 312, category: "overdose", strengthNum: 10.0, concept: "Легендарная мощная тростниковая мята с дымным торфяным виски.", ingredients: [{ brand: "Tangiers — Burley", flavor: "Cane Mint", percent: 50, color: "#2ec4b6" }, { brand: "Satyr — High Aroma", flavor: "Whisky", percent: 35, color: "#3d2b1f" }, { brand: "Bonche — Cigar Selection", flavor: "Base Cigar", percent: 15, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Плотное касание", heat: "4 угля 25mm / 9 мин" },
+            { id: 57, name: "Тайский Драгонфрут, Базилик & Кокос", rating: 4.86, reviews: 88, category: "medium", strengthNum: 5.7, concept: "Сочный азиатский драгонфрут с пряным базиликом и сливочным кокосом.", ingredients: [{ brand: "Element — Вода", flavor: "Pitaya", percent: 45, color: "#9d4edd" }, { brand: "Element — Вода", flavor: "Basil", percent: 30, color: "#2a9d8f" }, { brand: "Musthave — Classic", flavor: "Coconut", percent: 25, color: "#f3e5ab" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Средняя", heat: "3 угля 25mm / 6 мин" },
+            { id: 58, name: "Копченая Слива, Гвоздика & Бурбон", rating: 4.91, reviews: 125, category: "extra", strengthNum: 8.7, concept: "Вяленый чернослив в пряном маринаде из бурбона и гвоздики.", ingredients: [{ brand: "Satyr — High Aroma", flavor: "Bourbon", percent: 40, color: "#3d2b1f" }, { brand: "Bonche — Cigar Selection", flavor: "Plum", percent: 40, color: "#aa7c11" }, { brand: "Musthave — Classic", flavor: "Cinnamon", percent: 20, color: "#e63946" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Оверпак", heat: "4 угля 22mm / 8 мин" },
+            { id: 59, name: "Дикая Земляника & Дымная Хвоя", rating: 4.88, reviews: 96, category: "strong", strengthNum: 7.6, concept: "Спелая лесная земляника на свежесломанной сосновой ветке.", ingredients: [{ brand: "Darkside — Rare", flavor: "Wildberry", percent: 45, color: "#e63946" }, { brand: "Element — Земля", flavor: "Fir", percent: 35, color: "#2a9d8f" }, { brand: "Musthave — Classic", flavor: "Forest Mist", percent: 20, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 60, name: "Какао Бобы, Мята & Выдержанный Ром", rating: 4.93, reviews: 160, category: "extra", strengthNum: 9.1, concept: "Горькие какао-бобы с перечной мятой на выдержанном темном роме.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Cacao", percent: 45, color: "#3d2b1f" }, { brand: "Satyr — High Aroma", flavor: "Rum", percent: 35, color: "#aa7c11" }, { brand: "Darkside — Rare", flavor: "Supernova", percent: 20, color: "#00b4d8" }], craftBase: null, hasCraft: false, bowl: "Эвил", type: "Плотный оверпак", heat: "4 угля 22mm / 8 мин" },
+
+            // 61-70
+            { id: 61, name: "Ананасовый Карпаччо & Розмарин", rating: 4.85, reviews: 82, category: "medium", strengthNum: 5.8, concept: "Тонко нарезанный кислый ананас с хвойными веточками розмарина.", ingredients: [{ brand: "BlackBurn — Shock", flavor: "Pineapple Shock", percent: 45, color: "#ff9f1c" }, { brand: "Element — Вода", flavor: "Rosemary", percent: 30, color: "#2ec4b6" }, { brand: "Musthave — Classic", flavor: "Ice Mint", percent: 25, color: "#00b4d8" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 62, name: "Соленый Огурец & Пряный Джин", rating: 4.89, reviews: 110, category: "strong", strengthNum: 7.9, concept: "Экстравагантный соленый огурчик с джином и можжевеловыми ягодами.", ingredients: [{ brand: "Spectrum — Kitchen", flavor: "Cucumber", percent: 45, color: "#2a9d8f" }, { brand: "Satyr — High Aroma", flavor: "Jäger", percent: 35, color: "#3d2b1f" }, { brand: "Element — Земля", flavor: "Lime", percent: 20, color: "#d4af37" }], craftBase: "В колбу: Минеральная вода со слайсами свежего огурца.", hasCraft: true, bowl: "Убивашка", type: "Секторами", heat: "3 угля 25mm / 7 мин" },
+            { id: 63, name: "Tangiers Mimon & Острый Чили", rating: 4.97, reviews: 285, category: "overdose", strengthNum: 10.0, concept: "Культовый лимон с мятой от Tangiers с обжигающей стручковой остринкой.", ingredients: [{ brand: "Tangiers — Noir", flavor: "Mimon", percent: 60, color: "#2ec4b6" }, { brand: "Darkside — Rare", flavor: "Generous Chilli", percent: 25, color: "#e63946" }, { brand: "Element — Огонь", flavor: "Cigar Base", percent: 15, color: "#3d2b1f" }], craftBase: null, hasCraft: false, bowl: "Турка Clay", type: "Воздушно с касанием", heat: "4 угля 25mm / 9 мин" },
+            { id: 64, name: "Малиновый Мильфей & Ваниль", rating: 4.87, reviews: 90, category: "medium", strengthNum: 5.6, concept: "Французский слоеный десерт с лесной малиной и натуральной ванилью.", ingredients: [{ brand: "Musthave — Classic", flavor: "Raspberry", percent: 45, color: "#e63946" }, { brand: "Chabacco — Medium", flavor: "French Pastry", percent: 35, color: "#aa7c11" }, { brand: "Darkside — Core", flavor: "Vanilla", percent: 20, color: "#f3e5ab" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Плотный", heat: "3 угля 25mm / 6 мин" },
+            { id: 65, name: "Dogma Cigar & Вяленый Томат", rating: 4.92, reviews: 138, category: "extra", strengthNum: 8.8, concept: "Густой пряный табачный дым с вяленым томатом, орегано и сигарным листом.", ingredients: [{ brand: "Dogma", flavor: "Cuban Leaf", percent: 45, color: "#3d2b1f" }, { brand: "Spectrum — Kitchen", flavor: "Gazpacho", percent: 35, color: "#e63946" }, { brand: "Element — Земля", flavor: "Basil", percent: 20, color: "#2a9d8f" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Плотный колодец", heat: "4 угля 22mm / 8 мин" },
+            { id: 66, name: "Зеленый Чай Сенча & Жасмин", rating: 4.83, reviews: 75, category: "medium", strengthNum: 5.5, concept: "Чистый восточный травянистый зеленый чай с ароматными бутонами жасмина.", ingredients: [{ brand: "Element — Вода", flavor: "Jasmine Tea", percent: 50, color: "#2ec4b6" }, { brand: "Spectrum — Classic", flavor: "Green Tea", percent: 30, color: "#2a9d8f" }, { brand: "Darkside — Core", flavor: "Ice", percent: 20, color: "#00b4d8" }], craftBase: "В колбу: Натуральный заваренный зеленый чай (35°C).", hasCraft: true, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 67, name: "Sebero Black: Клюква & Можжевельник", rating: 4.91, reviews: 122, category: "strong", strengthNum: 8.2, concept: "Плотный крепкий Burley бленд от Sebero с горной клюквой и хвоей.", ingredients: [{ brand: "Sebero — Black", flavor: "Cranberry", percent: 50, color: "#e63946" }, { brand: "Element — Земля", flavor: "Fir", percent: 30, color: "#2a9d8f" }, { brand: "Musthave — Classic", flavor: "Morocco Lime", percent: 20, color: "#2ec4b6" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Воздушно с касанием", heat: "3 угля 25mm / 7 мин" },
+            { id: 68, name: "Мексиканский Тепаче & Ферментированный Ананас", rating: 4.88, reviews: 94, category: "strong", strengthNum: 7.7, concept: "Традиционный ферментированный ананасовый напиток со специями и корицей.", ingredients: [{ brand: "Musthave — Classic", flavor: "Pineapple", percent: 40, color: "#ff9f1c" }, { brand: "Satyr — High Aroma", flavor: "Tepache", percent: 40, color: "#3d2b1f" }, { brand: "Spectrum — Kitchen", flavor: "Cinnamon", percent: 20, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Секторами", heat: "3 угля 25mm / 7 мин" },
+            { id: 69, name: "Дымок Дубовой Бочки & Спелый Кислый Квинт", rating: 4.94, reviews: 168, category: "extra", strengthNum: 9.0, concept: "Дубовый выдержанный профиль с нотами спелой айвы и кориандра.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Oak", percent: 45, color: "#3d2b1f" }, { brand: "Element — Земля", flavor: "Quince", percent: 35, color: "#d4af37" }, { brand: "Darkside — Rare", flavor: "Spice", percent: 20, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Турка из плотной глины", type: "Оверпак", heat: "4 угля 22mm / 8 мин" },
+            { id: 70, name: "Chabacco Strong: Копченый Улун & Чернослив", rating: 4.9, reviews: 116, category: "strong", strengthNum: 8.0, concept: "Бестабачная крепкая смесь на белом чае: копченый Да Хун Пао и чернослив.", ingredients: [{ brand: "Chabacco — Strong", flavor: "Da Hong Pao", percent: 50, color: "#3d2b1f" }, { brand: "Musthave — Classic", flavor: "Prune", percent: 30, color: "#9d4edd" }, { brand: "Element — Земля", flavor: "Wood", percent: 20, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Плотный", heat: "3 угля 25mm / 7 мин" },
+
+            // 71-80
+            { id: 71, name: "Клюквенный Сауэр & Сосновые Почки", rating: 4.86, reviews: 85, category: "strong", strengthNum: 7.4, concept: "Экстремально кислый барный коктейль с дикой северной хвойной нотой.", ingredients: [{ brand: "BlackBurn — Shock", flavor: "Cranberry Shock", percent: 50, color: "#e63946" }, { brand: "Element — Земля", flavor: "Fir", percent: 30, color: "#2a9d8f" }, { brand: "Darkside — Core", flavor: "Supernova", percent: 20, color: "#00b4d8" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 72, name: "Печеный Каштан & Сливочный Стаут", rating: 4.89, reviews: 104, category: "medium", strengthNum: 6.0, concept: "Теплый осенний аромат жареного каштана с густым темным пивом.", ingredients: [{ brand: "Spectrum — Kitchen", flavor: "Chestnut", percent: 45, color: "#aa7c11" }, { brand: "Satyr — High Aroma", flavor: "Stout", percent: 35, color: "#3d2b1f" }, { brand: "Chabacco — Medium", flavor: "Cream", percent: 20, color: "#f3e5ab" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Слоями", heat: "3 угля 25mm / 7 мин" },
+            { id: 73, name: "Танж Абсент & Черная Смородина", rating: 4.97, reviews: 260, category: "overdose", strengthNum: 10.0, concept: "Анисовая крепость аниса и полыни с терпким смородиновым соком.", ingredients: [{ brand: "Tangiers — Noir", flavor: "Absinthe", percent: 50, color: "#2ec4b6" }, { brand: "Darkside — Rare", flavor: "Blackcurrant", percent: 35, color: "#e63946" }, { brand: "Element — Огонь", flavor: "Cigar Base", percent: 15, color: "#3d2b1f" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Плотное касание", heat: "4 угля 25mm / 9 мин" },
+            { id: 74, name: "Дикий Тархун & Горький Тоник", rating: 4.83, reviews: 78, category: "medium", strengthNum: 5.8, concept: "Пузырьковый освежающий эстрагон с шипящей горечью хинного тоника.", ingredients: [{ brand: "Element — Вода", flavor: "Tarragon", percent: 45, color: "#2a9d8f" }, { brand: "Musthave — Classic", flavor: "Tonic", percent: 35, color: "#00b4d8" }, { brand: "Darkside — Core", flavor: "Lemon", percent: 20, color: "#d4af37" }], craftBase: "В колбу: Холодный Швепсы Тоник с минералкой 1:1.", hasCraft: true, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 75, name: "Ромовая Баба & Выдержанный Изюм", rating: 4.91, reviews: 118, category: "strong", strengthNum: 8.1, concept: "Сочная ромовая выпечка с темным пьяным изюмом и корицей.", ingredients: [{ brand: "Satyr — High Aroma", flavor: "Rum Cake", percent: 45, color: "#3d2b1f" }, { brand: "Musthave — Classic", flavor: "Raisin", percent: 35, color: "#9d4edd" }, { brand: "Spectrum — Kitchen", flavor: "Cinnamon", percent: 20, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Плотный", heat: "3 угля 25mm / 7 мин" },
+            { id: 76, name: "Dogma Cigar & Клюквенный Ликер", rating: 4.95, reviews: 180, category: "extra", strengthNum: 9.2, concept: "Сигарный ферментированный лист в тандеме со сладковато-кислым клюквенным ликером.", ingredients: [{ brand: "Dogma", flavor: "Grand Cigar", percent: 50, color: "#3d2b1f" }, { brand: "BlackBurn — Shock", flavor: "Cranberry Shock", percent: 35, color: "#e63946" }, { brand: "Musthave — Classic", flavor: "Vanilla", percent: 15, color: "#f3e5ab" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Плотный оверпак", heat: "4 угля 22mm / 8 мин" },
+            { id: 77, name: "Лимонно-Имбирный Шот & Мята", rating: 4.85, reviews: 88, category: "strong", strengthNum: 7.3, concept: "Ядреный бодрящий шот из свежевыжатого лимона, корня имбиря и перечной мяты.", ingredients: [{ brand: "BlackBurn — Shock", flavor: "Lemon Shock", percent: 40, color: "#d4af37" }, { brand: "Element — Земля", flavor: "Ginger", percent: 35, color: "#aa7c11" }, { brand: "Darkside — Rare", flavor: "Supernova", percent: 25, color: "#00b4d8" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 78, name: "Сливочный Ореховый Нуга & Сигара", rating: 4.88, reviews: 96, category: "medium", strengthNum: 6.0, concept: "Восточная ореховая нуга со сливочным кремом и легким табачным оттенком.", ingredients: [{ brand: "Musthave — Classic", flavor: "Nut Cream", percent: 50, color: "#aa7c11" }, { brand: "Chabacco — Medium", flavor: "Nougat", percent: 30, color: "#f3e5ab" }, { brand: "Bonche — Cigar Selection", flavor: "Base Cigar", percent: 20, color: "#3d2b1f" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Средняя", heat: "3 угля 25mm / 6 мин" },
+            { id: 79, name: "Sebero Black: Черная Смородина & Пепел", rating: 4.92, reviews: 130, category: "strong", strengthNum: 8.3, concept: "Тяжелая дикая черная смородина на углях с глубокой древесной зольностью.", ingredients: [{ brand: "Sebero — Black", flavor: "Blackcurrant", percent: 50, color: "#9d4edd" }, { brand: "Satyr — Unflavored", flavor: "Black Jack", percent: 30, color: "#3d2b1f" }, { brand: "Element — Земля", flavor: "Pine", percent: 20, color: "#2a9d8f" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Воздушно с касанием", heat: "3 угля 25mm / 7 мин" },
+            { id: 80, name: "Азиатский Юдзу & Розовый Перец", rating: 4.9, reviews: 112, category: "strong", strengthNum: 7.8, concept: "Терпкий гибридный цитрус юдзу с ароматической пряностью розового перца горошком.", ingredients: [{ brand: "Musthave — Classic", flavor: "Yuzu", percent: 45, color: "#d4af37" }, { brand: "Spectrum — Kitchen", flavor: "Pink Pepper", percent: 25, color: "#e63946" }, { brand: "Element — Земля", flavor: "Grapefruit", percent: 30, color: "#ff9f1c" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Секторами", heat: "3 угля 25mm / 6 мин" },
+
+            // 81-90
+            { id: 81, name: "Дымный Гранат, Цедра & Эвкалипт", rating: 4.87, reviews: 90, category: "strong", strengthNum: 7.6, concept: "Кислый горный гранат с перетертой лимонной цедрой и морозным эвкалиптом.", ingredients: [{ brand: "Element — Земля", flavor: "Pomegranate", percent: 45, color: "#e63946" }, { brand: "Darkside — Rare", flavor: "Eucalyptus", percent: 30, color: "#2ec4b6" }, { brand: "BlackBurn — Standard", flavor: "Lemon", percent: 25, color: "#d4af37" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 82, name: "Tangiers Horchata & Коричный Шоколад", rating: 4.96, reviews: 220, category: "overdose", strengthNum: 9.9, concept: "Культовый мексиканский рисовый напиток от Tangiers с корицей и какао.", ingredients: [{ brand: "Tangiers — Noir", flavor: "Horchata", percent: 55, color: "#f3e5ab" }, { brand: "Bonche — Cigar Selection", flavor: "Cacao", percent: 30, color: "#3d2b1f" }, { brand: "Musthave — Classic", flavor: "Cinnamon", percent: 15, color: "#e63946" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Плотный оверпак", heat: "4 угля 22mm / 8 мин" },
+            { id: 83, name: "Свежая Облепиха & Ледяной Мохито", rating: 4.84, reviews: 80, category: "medium", strengthNum: 5.9, concept: "Яркая сочная облепиха в сочетании с ледяной мятой и долькой лайма.", ingredients: [{ brand: "Musthave — Classic", flavor: "Sea Buckthorn", percent: 45, color: "#ff9f1c" }, { brand: "Darkside — Core", flavor: "Mojito", percent: 35, color: "#2ec4b6" }, { brand: "Element — Вода", flavor: "Ice", percent: 20, color: "#00b4d8" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 84, name: "Черный Трюфель & Ореховое Масло", rating: 4.93, reviews: 145, category: "extra", strengthNum: 8.9, concept: "Плотный маслянистый гастро-профиль с изысканным черным трюфелем.", ingredients: [{ brand: "Spectrum — Kitchen", flavor: "Truffle", percent: 40, color: "#3d2b1f" }, { brand: "Musthave — Classic", flavor: "Hazelnut", percent: 35, color: "#aa7c11" }, { brand: "Satyr — Unflavored", flavor: "Burley", percent: 25, color: "#2a9d8f" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Слоями", heat: "3 угля 25mm / 7 мин" },
+            { id: 85, name: "Копченый Чернослив & Белый Портвейн", rating: 4.91, reviews: 128, category: "extra", strengthNum: 8.6, concept: "Густой сушеный слив в пьяном выдержанном белом виноградном вине.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Plum", percent: 45, color: "#3d2b1f" }, { brand: "Satyr — High Aroma", flavor: "Porto White", percent: 35, color: "#d4af37" }, { brand: "Element — Земля", flavor: "Wood", percent: 20, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Оверпак", heat: "4 угля 22mm / 8 мин" },
+            { id: 86, name: "Киви, Гуава & Острый Васаби", rating: 4.88, reviews: 94, category: "strong", strengthNum: 7.7, concept: "Экзотическая кислинка киви и гуавы с обжигающей хреновой перечностью.", ingredients: [{ brand: "BlackBurn — Shock", flavor: "Kiwi Shock", percent: 40, color: "#2ec4b6" }, { brand: "Element — Земля", flavor: "Guava", percent: 35, color: "#e63946" }, { brand: "Spectrum — Kitchen", flavor: "Wasabi", percent: 25, color: "#2a9d8f" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Секторами", heat: "3 угля 25mm / 6 мин" },
+            { id: 87, name: "Сливочный Чизкейк с Горьким Какао", rating: 4.86, reviews: 86, category: "medium", strengthNum: 5.7, concept: "Нежный нью-йоркский чизкейк с посыпкой из натурального горького какао.", ingredients: [{ brand: "Musthave — Classic", flavor: "Cheesecake", percent: 50, color: "#f3e5ab" }, { brand: "Darkside — Core", flavor: "Dark Ice Cream", percent: 30, color: "#3d2b1f" }, { brand: "Chabacco — Medium", flavor: "Biscuit", percent: 20, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Плотный", heat: "3 угля 25mm / 6 мин" },
+            { id: 88, name: "Tangiers Welsh Cream & Ирландский Стаут", rating: 4.97, reviews: 240, category: "overdose", strengthNum: 9.8, concept: "Культовые валлийские сливки от Tangiers со строгим темным стаутом.", ingredients: [{ brand: "Tangiers — Noir", flavor: "Welsh Cream", percent: 50, color: "#d4af37" }, { brand: "Satyr — High Aroma", flavor: "Guinness", percent: 35, color: "#3d2b1f" }, { brand: "Element — Огонь", flavor: "Cigar Base", percent: 15, color: "#e63946" }], craftBase: null, hasCraft: false, bowl: "Глиняная Турка", type: "Воздушно с касанием", heat: "4 угля 25mm / 8 мин" },
+            { id: 89, name: "Дикая Красная Смородина & Кедровая Лапа", rating: 4.89, reviews: 105, category: "strong", strengthNum: 7.9, concept: "Терпкая кислая красная смородина на свежей кедровой хвое.", ingredients: [{ brand: "BlackBurn — Shock", flavor: "Red Currant Shock", percent: 45, color: "#e63946" }, { brand: "Element — Земля", flavor: "Pine", percent: 35, color: "#2a9d8f" }, { brand: "Musthave — Classic", flavor: "Forest Mist", percent: 20, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Турка", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 90, name: "Dogma Grand Cigar & Пряная Корица", rating: 4.94, reviews: 162, category: "extra", strengthNum: 9.1, concept: "Мощный сигарный бленд от Dogma с выраженной теплой коричной нотой.", ingredients: [{ brand: "Dogma", flavor: "Grand Cigar", percent: 50, color: "#3d2b1f" }, { brand: "Musthave — Classic", flavor: "Cinnamon", percent: 30, color: "#e63946" }, { brand: "Satyr — Unflavored", flavor: "Bro", percent: 20, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Плотный оверпак", heat: "4 угля 22mm / 8 мин" },
+
+            // 91-100
+            { id: 91, name: "Эстрагон, Клюква & Острый Чили", rating: 4.88, reviews: 98, category: "strong", strengthNum: 8.0, concept: "Дикий напиток: кисло-пряный эстрагон с ключевой клюквой и остринкой.", ingredients: [{ brand: "Element — Земля", flavor: "Tarragon", percent: 40, color: "#2a9d8f" }, { brand: "BlackBurn — Shock", flavor: "Cranberry Shock", percent: 35, color: "#e63946" }, { brand: "Darkside — Rare", flavor: "Generous Chilli", percent: 25, color: "#ff9f1c" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Секторами", heat: "3 угля 25mm / 7 мин" },
+            { id: 92, name: "Маракуйя, Гуава & Мятный Эвкалипт", rating: 4.85, reviews: 82, category: "medium", strengthNum: 5.9, concept: "Сочный тропический коктейль со сильным прохладным подтоном.", ingredients: [{ brand: "Musthave — Classic", flavor: "Maracuja", percent: 45, color: "#ff9f1c" }, { brand: "Darkside — Core", flavor: "Guava", percent: 35, color: "#e63946" }, { brand: "Element — Вода", flavor: "Eucalyptus", percent: 20, color: "#2ec4b6" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Воздушно", heat: "3 угля 25mm / 6 мин" },
+            { id: 93, name: "Tangiers Peach Iced Tea & Доха", rating: 4.98, reviews: 295, category: "overdose", strengthNum: 10.0, concept: "Легендарный персиковый холодный чай Tangiers с жесткой дохой.", ingredients: [{ brand: "Tangiers — Noir", flavor: "Peach Iced Tea", percent: 60, color: "#aa7c11" }, { brand: "Element — Огонь", flavor: "Cigar Base", percent: 25, color: "#3d2b1f" }, { brand: "Darkside — Rare", flavor: "Supernova", percent: 15, color: "#00b4d8" }], craftBase: null, hasCraft: false, bowl: "Турка Гармония", type: "Воздушно с касанием", heat: "4 угля 25mm / 9 мин" },
+            { id: 94, name: "Ананасовый Тарт с Кардамоном", rating: 4.87, reviews: 90, category: "medium", strengthNum: 5.8, concept: "Французский ананасовый открытый пирог с пряным восточным кардамоном.", ingredients: [{ brand: "Musthave — Classic", flavor: "Pineapple Rings", percent: 45, color: "#ff9f1c" }, { brand: "Spectrum — Kitchen", flavor: "Cardamom", percent: 25, color: "#f3e5ab" }, { brand: "Chabacco — Medium", flavor: "Tart", percent: 30, color: "#aa7c11" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Плотный", heat: "3 угля 25mm / 6 мин" },
+            { id: 95, name: "Копченый Бурбон & Вяленый Инжир", rating: 4.93, reviews: 152, category: "extra", strengthNum: 9.0, concept: "Тяжелый пьяный инжир в дубовом бурбоне с сигарной подложкой.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Fig", percent: 45, color: "#3d2b1f" }, { brand: "Satyr — High Aroma", flavor: "Bourbon", percent: 35, color: "#aa7c11" }, { brand: "Element — Земля", flavor: "Oak", percent: 20, color: "#2a9d8f" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Оверпак", heat: "4 угля 22mm / 8 мин" },
+            { id: 96, name: "Клюквенный Глинтвейн & Сосновый Дым", rating: 4.9, reviews: 114, category: "strong", strengthNum: 8.1, concept: "Согревающий зимний глинтвейн с северной клюквой и дымной хвоей.", ingredients: [{ brand: "BlackBurn — Shock", flavor: "Cranberry Shock", percent: 40, color: "#e63946" }, { brand: "Musthave — Classic", flavor: "Mulled Wine", percent: 35, color: "#9d4edd" }, { brand: "Element — Земля", flavor: "Fir", percent: 25, color: "#2a9d8f" }], craftBase: "В колбу: Горячий каркаде с бутонами гвоздики.", hasCraft: true, bowl: "Турка", type: "Секторами", heat: "3 угля 25mm / 7 мин" },
+            { id: 97, name: "Фисташковый Крем & Ванильный Бурбон", rating: 4.86, reviews: 88, category: "medium", strengthNum: 6.0, concept: "Бархатистый фисташковый мусс с пряной ванильной алкогольной выдержкой.", ingredients: [{ brand: "Musthave — Classic", flavor: "Pistachio", percent: 45, color: "#2a9d8f" }, { brand: "Satyr — High Aroma", flavor: "Bourbon", percent: 30, color: "#aa7c11" }, { brand: "Darkside — Core", flavor: "Vanilla", percent: 25, color: "#f3e5ab" }], craftBase: null, hasCraft: false, bowl: "Фаннел", type: "Плотный", heat: "3 угля 25mm / 6 мин" },
+            { id: 98, name: "Tangiers Brambleberry & Мятный Эвкалипт", rating: 4.97, reviews: 270, category: "overdose", strengthNum: 9.9, concept: "Легендарная ежевика Tangiers с ледяным эвкалиптом и жестким Burley.", ingredients: [{ brand: "Tangiers — Burley", flavor: "Brambleberry", percent: 55, color: "#9d4edd" }, { brand: "Darkside — Rare", flavor: "Eucalyptus", percent: 30, color: "#2ec4b6" }, { brand: "Element — Огонь", flavor: "Cigar Base", percent: 15, color: "#3d2b1f" }], craftBase: null, hasCraft: false, bowl: "Эвил", type: "Воздушно с касанием", heat: "4 угля 25mm / 9 мин" },
+            { id: 99, name: "Пикантный Гаспачо & Базилик-Лайм", rating: 4.91, reviews: 124, category: "strong", strengthNum: 7.8, concept: "Освежающий суп гаспачо со свежим базиликом и долькой кислого лайма.", ingredients: [{ brand: "Spectrum — Kitchen", flavor: "Gazpacho", percent: 50, color: "#e63946" }, { brand: "Element — Земля", flavor: "Basil", percent: 30, color: "#2a9d8f" }, { brand: "Musthave — Classic", flavor: "Morocco Lime", percent: 20, color: "#2ec4b6" }], craftBase: null, hasCraft: false, bowl: "Убивашка", type: "Секторами", heat: "3 угля 25mm / 6 мин" },
+            { id: 100, name: "Королевская Сигара: Вишня & Какао Бобы", rating: 4.99, reviews: 350, category: "extra", strengthNum: 9.5, concept: "Флагманский микс: 100% сигарный лист с дикой вишней и тертыми какао-бобами.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Vintage Cherry", percent: 45, color: "#e63946" }, { brand: "Bonche — Cigar Selection", flavor: "Cacao", percent: 35, color: "#3d2b1f" }, { brand: "Satyr — Unflavored", flavor: "Platinum Blend", percent: 20, color: "#aa7c11" }], craftBase: "В колбу: Натуральный отвар из вишневых листьев и палочек корицы.", hasCraft: true, bowl: "Турка из плотной глины", type: "Плотный оверпак с колодцем", heat: "4 угля 22mm / Калауд / Прогрев 8 мин" }
+        ];
+
+        let currentFilter = 'all';
+
+        function switchTab(tabId) {
+            document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
+            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+
+            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
+            
+            const activeIndex = tabId === 'mixes' ? 0 : tabId === 'catalog' ? 1 : 2;
+            document.querySelectorAll('.nav-btn')[activeIndex].classList.add('active');
+        }
+
+        function renderMixes() {
+            const container = document.getElementById('mixesContainer');
+            const searchVal = document.getElementById('mixSearch').value.toLowerCase();
+            const bowlWeight = parseFloat(document.getElementById('bowlGram').value) || 18;
+
+            container.innerHTML = '';
+
+            const filtered = mixesData.filter(mix => {
+                if (currentFilter === 'medium' && mix.category !== 'medium') return false;
+                if (currentFilter === 'strong' && mix.category !== 'strong') return false;
+                if (currentFilter === 'extra' && mix.category !== 'extra') return false;
+                if (currentFilter === 'overdose' && mix.category !== 'overdose') return false;
+                if (currentFilter === 'craft' && !mix.hasCraft) return false;
+
+                if (searchVal) {
+                    const inName = mix.name.toLowerCase().includes(searchVal);
+                    const inConcept = mix.concept.toLowerCase().includes(searchVal);
+                    const inIngr = mix.ingredients.some(i => 
+                        i.brand.toLowerCase().includes(searchVal) || 
+                        i.flavor.toLowerCase().includes(searchVal)
+                    );
+                    const inCraft = mix.craftBase && mix.craftBase.toLowerCase().includes(searchVal);
+                    return inName || inConcept || inIngr || inCraft;
+                }
+
+                return true;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 50px;">
+                    <i class="fa-solid fa-ban" style="font-size: 2.2rem; margin-bottom: 12px; color: var(--ruby-red);"></i>
+                    <p style="font-size: 1.1rem;">Миксы по вашему запросу не найдены.</p>
+                </div>`;
+                return;
+            }
+
+            filtered.forEach(mix => {
+                let barColor = 'var(--neon-amber)';
+                if (mix.strengthNum >= 7) barColor = 'var(--ruby-red)';
+                if (mix.strengthNum >= 8.5) barColor = 'var(--purple-strong)';
+
+                let ingredientsHTML = mix.ingredients.map(ing => {
+                    const grams = ((ing.percent / 100) * bowlWeight).toFixed(1);
+                    return `
+                        <div class="ingredient-item">
+                            <div class="ingredient-info">
+                                <div>
+                                    <span class="ingredient-name">${ing.flavor}</span>
+                                    <span class="ingredient-brand">(${ing.brand})</span>
+                                </div>
+                                <div class="ingredient-amount">
+                                    ${ing.percent}% <span style="font-size:0.75rem; color:var(--text-muted);">(${grams}g)</span>
+                                </div>
+                            </div>
+                            <div class="progress-bar-bg">
+                                <div class="progress-bar-fill" style="width: ${ing.percent}%; background-color: ${ing.color};"></div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+
+                let craftHTML = '';
+                if (mix.craftBase) {
+                    craftHTML = `
+                        <div class="craft-base-block">
+                            <div class="craft-base-title">
+                                <i class="fa-solid fa-wine-glass"></i> Секрет Экстракции & Колба/Чаша:
+                            </div>
+                            <div class="craft-base-desc">${mix.craftBase}</div>
+                        </div>
+                    `;
+                }
+
+                const cardHTML = `
+                    <div class="glass-card mix-card">
+                        <div>
+                            <div class="mix-header">
+                                <div>
+                                    <span class="mix-id">MIX #${mix.id}</span>
+                                    <h3 class="mix-title">${mix.name}</h3>
+                                </div>
+                                <div class="rating-badge">
+                                    <i class="fa-solid fa-star"></i> ${mix.rating} <span style="font-size:0.72rem; opacity:0.8;">(${mix.reviews})</span>
+                                </div>
+                            </div>
+                            <p class="mix-concept">"${mix.concept}"</p>
+
+                            <div class="strength-meter">
+                                <div class="strength-meter-label">
+                                    <span>Уровень крепости</span>
+                                    <span style="font-weight:700; color:var(--text-main);">${mix.strengthNum} / 10</span>
+                                </div>
+                                <div class="strength-meter-bar">
+                                    <div class="strength-meter-fill" style="width: ${mix.strengthNum * 10}%; background: ${barColor};"></div>
+                                </div>
+                            </div>
+
+                            <div class="ingredients-list">
+                                ${ingredientsHTML}
+                            </div>
+
+                            ${craftHTML}
+                        </div>
+
+                        <div>
+                            <div class="setup-specs">
+                                <div class="spec-item">
+                                    <i class="fa-solid fa-bowl-food"></i>
+                                    <span>Чаша: <span class="spec-val">${mix.bowl}</span></span>
+                                </div>
+                                <div class="spec-item">
+                                    <i class="fa-solid fa-hand"></i>
+                                    <span>Тип: <span class="spec-val">${mix.type}</span></span>
+                                </div>
+                                <div class="spec-item" style="grid-column: 1/-1;">
+                                    <i class="fa-solid fa-fire"></i>
+                                    <span>Прогрев: <span class="spec-val">${mix.heat}</span></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+
+                container.insertAdjacentHTML('beforeend', cardHTML);
+            });
+        }
+
+        function setFilter(filterType, btnElem) {
+            currentFilter = filterType;
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            btnElem.classList.add('active');
+            renderMixes();
+        }
+
+        function filterMixes() {
+            renderMixes();
+        }
+
+        function calculateGrams() {
+            renderMixes();
+        }
+
+        function setGramPreset(grams) {
+            document.getElementById('bowlGram').value = grams;
+            renderMixes();
+        }
+
+        window.onload = function() {
+            document.getElementById('totalMixesCount').innerText = mixesData.length;
+            renderMixes();
+        };
+    </script>
+</body>
+</html>
