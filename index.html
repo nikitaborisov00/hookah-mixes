@@ -2,630 +2,1197 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Hookah Sommelier Grand Library | 100 Авторских Миксов</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         :root {
-            --bg-dark: #070709;
-            --bg-card: rgba(20, 20, 27, 0.82);
-            --border-glass: rgba(212, 175, 55, 0.15);
-            --border-glow: rgba(212, 175, 55, 0.45);
+            --bg-deep: #07070a;
+            --bg-card: rgba(18, 18, 25, 0.78);
+            --bg-card-hover: rgba(26, 26, 36, 0.9);
+            --bg-overlay: rgba(10, 10, 14, 0.85);
             
             --gold-primary: #d4af37;
-            --gold-light: #f3e5ab;
-            --gold-dark: #aa7c11;
-            
-            --ruby-red: #e63946;
-            --neon-amber: #ff9f1c;
-            --purple-strong: #9d4edd;
-            --craft-teal: #00b4d8;
-            
-            --text-main: #f1f1f5;
-            --text-muted: #9a9ab0;
-            
-            --font-title: 'Cinzel', serif;
-            --font-body: 'Inter', sans-serif;
-            
-            --transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            --gold-light: #f7e7b4;
+            --gold-dark: #997316;
+            --gold-glow: rgba(212, 175, 55, 0.35);
+            --border-glass: rgba(212, 175, 55, 0.18);
+            --border-glow: rgba(212, 175, 55, 0.55);
+
+            --ruby: #e63946;
+            --amber: #f77f00;
+            --purple: #9d4edd;
+            --teal: #00b4d8;
+            --emerald: #10b981;
+
+            --text-primary: #f6f5f7;
+            --text-secondary: #a1a1aa;
+            --text-muted: #71717a;
+
+            --font-serif: 'Cinzel', serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+
+            --radius-sm: 8px;
+            --radius-md: 14px;
+            --radius-lg: 20px;
+            --radius-pill: 9999px;
+            --transition: all 0.28s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            background-color: var(--bg-dark);
+            background-color: var(--bg-deep);
             background-image: 
-                radial-gradient(circle at 15% 15%, rgba(212, 175, 55, 0.05) 0%, transparent 40%),
-                radial-gradient(circle at 85% 85%, rgba(230, 57, 70, 0.04) 0%, transparent 40%),
-                radial-gradient(circle at 50% 50%, rgba(12, 12, 16, 0.9) 0%, #070709 100%);
+                radial-gradient(ellipse 80% 50% at 50% -20%, rgba(212, 175, 55, 0.12), transparent),
+                radial-gradient(circle at 10% 25%, rgba(157, 78, 221, 0.05), transparent 45%),
+                radial-gradient(circle at 90% 75%, rgba(230, 57, 70, 0.05), transparent 45%),
+                radial-gradient(circle at 50% 100%, rgba(0, 180, 216, 0.04), transparent 50%);
             background-attachment: fixed;
-            color: var(--text-main);
-            font-family: var(--font-body);
-            line-height: 1.6;
-            padding-bottom: 60px;
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.55;
+            padding-bottom: 90px;
             overflow-x: hidden;
         }
 
         ::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
+            height: 6px;
         }
         ::-webkit-scrollbar-track {
-            background: #070709;
+            background: #08080c;
         }
         ::-webkit-scrollbar-thumb {
-            background: #252530;
-            border-radius: 4px;
+            background: rgba(212, 175, 55, 0.25);
+            border-radius: var(--radius-pill);
         }
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--gold-dark);
+            background: var(--gold-primary);
         }
 
         .container {
-            max-width: 1420px;
+            width: 100%;
+            max-width: 1440px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 16px;
+        }
+
+        @media (min-width: 768px) {
+            .container { padding: 0 24px; }
         }
 
         header {
-            padding: 45px 0 30px;
-            text-align: center;
             position: relative;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.18);
-            background: linear-gradient(180deg, rgba(20,20,28,0.75) 0%, rgba(7,7,9,0) 100%);
+            padding: 40px 0 24px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-glass);
+            background: linear-gradient(180deg, rgba(22, 22, 30, 0.8) 0%, rgba(7, 7, 10, 0.95) 100%);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
         }
 
-        .brand-badge {
+        .brand-crest {
             display: inline-flex;
             align-items: center;
-            gap: 8px;
-            padding: 6px 18px;
-            border-radius: 30px;
+            gap: 10px;
+            padding: 7px 18px;
+            border-radius: var(--radius-pill);
             background: rgba(212, 175, 55, 0.08);
-            border: 1px solid var(--gold-primary);
+            border: 1px solid var(--border-glass);
             color: var(--gold-light);
-            font-size: 0.85rem;
+            font-size: 0.8rem;
+            font-weight: 700;
             letter-spacing: 2px;
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin-bottom: 16px;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.12);
+        }
+
+        .brand-crest i {
+            color: var(--gold-primary);
         }
 
         h1 {
-            font-family: var(--font-title);
-            font-size: clamp(2.2rem, 5vw, 3.8rem);
+            font-family: var(--font-serif);
+            font-size: clamp(1.8rem, 4.5vw, 3.4rem);
             font-weight: 900;
-            background: linear-gradient(135deg, #ffffff 30%, var(--gold-light) 70%, var(--gold-primary) 100%);
+            letter-spacing: 1px;
+            background: linear-gradient(135deg, #ffffff 15%, var(--gold-light) 65%, var(--gold-primary) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            margin-bottom: 12px;
-            text-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            margin-bottom: 10px;
+            line-height: 1.15;
+            text-shadow: 0 10px 40px rgba(0,0,0,0.8);
         }
 
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1.05rem;
-            max-width: 850px;
-            margin: 0 auto 25px;
-            font-weight: 300;
+        .hero-desc {
+            color: var(--text-secondary);
+            font-size: clamp(0.9rem, 2vw, 1.05rem);
+            max-width: 820px;
+            margin: 0 auto 20px;
+            font-weight: 400;
+            padding: 0 8px;
         }
 
-        .nav-tabs {
+        .stats-ribbon {
             display: flex;
             justify-content: center;
-            gap: 15px;
-            margin-top: 20px;
+            align-items: center;
             flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 24px;
         }
 
-        .nav-btn {
-            background: rgba(255,255,255,0.03);
+        .stat-badge {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 14px;
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: var(--radius-pill);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .stat-badge strong {
+            color: var(--gold-light);
+            font-weight: 700;
+        }
+
+        .main-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 10px;
+        }
+
+        .tab-btn {
+            background: rgba(20, 20, 28, 0.6);
             border: 1px solid var(--border-glass);
-            color: var(--text-muted);
-            padding: 12px 24px;
-            border-radius: 12px;
+            color: var(--text-secondary);
+            padding: 10px 20px;
+            border-radius: var(--radius-md);
             font-weight: 600;
-            font-size: 0.95rem;
+            font-size: 0.88rem;
             cursor: pointer;
             transition: var(--transition);
-            display: flex;
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
-            backdrop-filter: blur(10px);
+            gap: 8px;
+            backdrop-filter: blur(12px);
         }
 
-        .nav-btn:hover, .nav-btn.active {
+        .tab-btn:hover {
             color: #fff;
-            background: rgba(212, 175, 55, 0.15);
             border-color: var(--gold-primary);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
-            transform: translateY(-2px);
+            background: rgba(212, 175, 55, 0.1);
         }
 
-        .controls-bar {
+        .tab-btn.active {
+            color: #fff;
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.25) 0%, rgba(153, 115, 22, 0.2) 100%);
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.25);
+        }
+
+        .tab-badge {
+            background: rgba(212, 175, 55, 0.2);
+            color: var(--gold-light);
+            padding: 2px 7px;
+            border-radius: var(--radius-pill);
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .control-panel {
             background: var(--bg-card);
             border: 1px solid var(--border-glass);
-            border-radius: 16px;
+            border-radius: var(--radius-lg);
             padding: 20px;
-            margin: 30px 0;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 18px;
+            margin: 28px 0;
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+        }
+
+        .control-row-main {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 14px;
             align-items: center;
-            justify-content: space-between;
+            margin-bottom: 16px;
         }
 
-        .search-box {
+        @media (min-width: 900px) {
+            .control-row-main {
+                grid-template-columns: 2fr 1fr auto;
+            }
+        }
+
+        .search-wrapper {
             position: relative;
-            flex: 1;
-            min-width: 280px;
-        }
-
-        .search-box input {
             width: 100%;
-            background: rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.15);
-            padding: 12px 16px 12px 42px;
-            border-radius: 10px;
-            color: #fff;
-            font-size: 0.95rem;
-            transition: var(--transition);
         }
 
-        .search-box input:focus {
-            outline: none;
-            border-color: var(--gold-primary);
-            box-shadow: 0 0 10px rgba(212,175,55,0.25);
-        }
-
-        .search-box i {
+        .search-wrapper i.fa-magnifying-glass {
             position: absolute;
-            left: 15px;
+            left: 16px;
             top: 50%;
             transform: translateY(-50%);
             color: var(--text-muted);
-        }
-
-        .filter-buttons {
-            display: flex;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: rgba(0,0,0,0.3);
-            border: 1px solid rgba(255,255,255,0.1);
-            color: var(--text-muted);
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 600;
+            font-size: 0.95rem;
+            pointer-events: none;
             transition: var(--transition);
         }
 
-        .filter-btn:hover, .filter-btn.active {
-            background: var(--gold-primary);
-            color: #000;
-            border-color: var(--gold-primary);
-            box-shadow: 0 2px 10px rgba(212,175,55,0.3);
+        .search-input {
+            width: 100%;
+            background: rgba(10, 10, 15, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            padding: 13px 44px 13px 46px;
+            border-radius: var(--radius-md);
+            color: #fff;
+            font-family: var(--font-sans);
+            font-size: 0.92rem;
+            transition: var(--transition);
         }
 
-        .gram-calculator-widget {
-            display: flex;
+        .search-input:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.25);
+            background: rgba(14, 14, 20, 0.95);
+        }
+
+        .search-clear-btn {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 6px;
+            font-size: 0.85rem;
+            display: none;
+        }
+
+        .search-clear-btn:hover {
+            color: #fff;
+        }
+
+        .sort-select-wrapper {
+            position: relative;
+        }
+
+        .sort-select {
+            width: 100%;
+            appearance: none;
+            -webkit-appearance: none;
+            background: rgba(10, 10, 15, 0.7);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            color: var(--text-primary);
+            padding: 13px 38px 13px 16px;
+            border-radius: var(--radius-md);
+            font-family: var(--font-sans);
+            font-size: 0.88rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .sort-select:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+        }
+
+        .sort-icon-arrow {
+            position: absolute;
+            right: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--gold-primary);
+            pointer-events: none;
+            font-size: 0.8rem;
+        }
+
+        .gram-widget {
+            display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             background: rgba(212, 175, 55, 0.08);
-            border: 1px solid var(--gold-primary);
-            padding: 8px 16px;
-            border-radius: 10px;
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 8px 14px;
             flex-wrap: wrap;
         }
 
-        .gram-calculator-widget label {
-            font-size: 0.85rem;
-            font-weight: 600;
-            color: var(--gold-light);
-        }
-
-        .gram-calculator-widget input {
-            width: 55px;
-            background: #000;
-            border: 1px solid var(--gold-primary);
-            color: #fff;
-            padding: 6px;
-            border-radius: 6px;
-            text-align: center;
+        .gram-label {
+            font-size: 0.82rem;
             font-weight: 700;
-            font-size: 0.95rem;
+            color: var(--gold-light);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .gram-presets {
+        .stepper-box {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(0,0,0,0.5);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: var(--radius-sm);
+            padding: 2px 4px;
+        }
+
+        .step-btn {
+            background: transparent;
+            border: none;
+            color: var(--gold-primary);
+            width: 26px;
+            height: 26px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .step-btn:hover {
+            background: rgba(212, 175, 55, 0.2);
+            color: #fff;
+        }
+
+        .gram-input {
+            width: 44px;
+            background: transparent;
+            border: none;
+            color: #fff;
+            text-align: center;
+            font-weight: 800;
+            font-size: 0.95rem;
+            padding: 2px;
+        }
+
+        .gram-input:focus {
+            outline: none;
+        }
+
+        .gram-unit {
+            font-size: 0.78rem;
+            color: var(--gold-light);
+            font-weight: 600;
+            margin-right: 4px;
+        }
+
+        .preset-pills {
             display: flex;
             gap: 4px;
         }
 
-        .preset-btn {
-            background: rgba(255,255,255,0.06);
-            border: 1px solid rgba(255,255,255,0.15);
-            color: var(--text-main);
-            padding: 4px 8px;
-            border-radius: 4px;
+        .preset-pill {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-secondary);
+            padding: 3px 8px;
+            border-radius: 6px;
             font-size: 0.75rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
         }
 
-        .preset-btn:hover {
+        .preset-pill:hover, .preset-pill.active {
             background: var(--gold-primary);
             color: #000;
+            border-color: var(--gold-primary);
+        }
+
+        .filter-section-title {
+            font-size: 0.76rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin: 14px 0 8px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .filter-chips-scroll {
+            display: flex;
+            gap: 8px;
+            overflow-x: auto;
+            padding-bottom: 6px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .filter-chips-scroll::-webkit-scrollbar {
+            display: none;
+        }
+
+        .chip-btn {
+            flex-shrink: 0;
+            background: rgba(14, 14, 20, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.09);
+            color: var(--text-secondary);
+            padding: 7px 14px;
+            border-radius: var(--radius-pill);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+        }
+
+        .chip-btn:hover {
+            border-color: var(--border-glow);
+            color: #fff;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .chip-btn.active {
+            background: var(--gold-primary);
+            color: #07070a;
+            border-color: var(--gold-primary);
+            font-weight: 700;
+            box-shadow: 0 2px 14px rgba(212, 175, 55, 0.35);
+        }
+
+        .chip-count {
+            background: rgba(0, 0, 0, 0.3);
+            color: inherit;
+            padding: 1px 6px;
+            border-radius: 10px;
+            font-size: 0.7rem;
+            font-weight: 700;
+        }
+
+        .chip-btn.active .chip-count {
+            background: rgba(0, 0, 0, 0.2);
+            color: #07070a;
+        }
+
+        .filter-status-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 14px;
+            padding-top: 12px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        .clear-filters-link {
+            color: var(--gold-primary);
+            background: none;
+            border: none;
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .clear-filters-link:hover {
+            color: var(--gold-light);
         }
 
         .mixes-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(390px, 1fr));
-            gap: 25px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
-        .glass-card {
+        @media (min-width: 720px) {
+            .mixes-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 22px;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .mixes-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 24px;
+            }
+        }
+
+        .recipe-card {
             background: var(--bg-card);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
             border: 1px solid var(--border-glass);
-            border-radius: 16px;
-            padding: 24px;
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .glass-card:hover {
-            border-color: var(--border-glow);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(212, 175, 55, 0.12);
-        }
-
-        .mix-card {
+            border-radius: var(--radius-lg);
+            padding: 22px;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+            position: relative;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            transition: var(--transition);
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
         }
 
-        .mix-header {
+        .recipe-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--gold-primary), transparent);
+            opacity: 0.4;
+            transition: var(--transition);
+        }
+
+        .recipe-card:hover {
+            transform: translateY(-4px);
+            border-color: var(--border-glow);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.6), 0 0 20px rgba(212, 175, 55, 0.15);
+            background: var(--bg-card-hover);
+        }
+
+        .recipe-card:hover::before {
+            opacity: 1;
+            height: 3px;
+        }
+
+        .card-top-bar {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             margin-bottom: 12px;
-            gap: 10px;
         }
 
-        .mix-id {
+        .mix-serial {
+            font-family: var(--font-serif);
             font-size: 0.75rem;
-            color: var(--gold-primary);
             font-weight: 700;
+            color: var(--gold-primary);
+            letter-spacing: 2px;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            display: block;
-            margin-bottom: 2px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
-        .mix-title {
-            font-family: var(--font-title);
-            font-size: 1.25rem;
+        .card-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .fav-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            width: 32px;
+            height: 32px;
+            border-radius: var(--radius-pill);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            font-size: 0.85rem;
+        }
+
+        .fav-btn:hover {
+            color: var(--ruby);
+            border-color: var(--ruby);
+            transform: scale(1.08);
+        }
+
+        .fav-btn.active {
+            color: var(--ruby);
+            background: rgba(230, 57, 70, 0.15);
+            border-color: var(--ruby);
+        }
+
+        .score-badge {
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid var(--border-glass);
+            color: var(--gold-light);
+            padding: 3px 9px;
+            border-radius: var(--radius-pill);
+            font-size: 0.78rem;
+            font-weight: 700;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .score-badge i {
+            color: #ffd166;
+            font-size: 0.72rem;
+        }
+
+        .recipe-title {
+            font-family: var(--font-serif);
+            font-size: 1.28rem;
             color: #fff;
+            font-weight: 700;
             line-height: 1.3;
+            margin-bottom: 8px;
         }
 
-        .rating-badge {
+        .tasting-notes {
+            font-size: 0.86rem;
+            color: var(--text-secondary);
+            font-style: italic;
+            line-height: 1.45;
+            margin-bottom: 16px;
+            position: relative;
+            padding-left: 10px;
+            border-left: 2px solid var(--gold-dark);
+            min-height: 40px;
+        }
+
+        .strength-indicator {
+            margin-bottom: 16px;
+            background: rgba(0, 0, 0, 0.35);
+            padding: 10px 12px;
+            border-radius: var(--radius-md);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+        }
+
+        .strength-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.76rem;
+            color: var(--text-muted);
+            margin-bottom: 6px;
+        }
+
+        .strength-val {
+            font-weight: 800;
+            color: #fff;
             display: inline-flex;
             align-items: center;
             gap: 5px;
-            padding: 4px 10px;
-            border-radius: 20px;
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid var(--gold-primary);
-            color: var(--gold-light);
-            font-size: 0.82rem;
-            font-weight: 700;
+        }
+
+        .flame-icon {
+            color: var(--amber);
+        }
+
+        .strength-segments {
+            display: flex;
+            gap: 3px;
+            height: 6px;
+        }
+
+        .strength-seg {
+            flex: 1;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 2px;
+            transition: var(--transition);
+        }
+
+        .strength-seg.filled-medium { background: var(--amber); }
+        .strength-seg.filled-strong { background: var(--ruby); }
+        .strength-seg.filled-extra { background: var(--purple); }
+
+        /* Proportion Bar at the top of ingredients */
+        .blend-ratio-bar {
+            display: flex;
+            height: 7px;
+            border-radius: var(--radius-pill);
+            overflow: hidden;
+            margin-bottom: 12px;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .blend-ratio-slice {
+            height: 100%;
+            transition: width 0.3s ease;
+        }
+
+        /* Ingredients breakdown */
+        .ingredients-box {
+            background: rgba(10, 10, 15, 0.45);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: var(--radius-md);
+            padding: 12px;
+            margin-bottom: 16px;
+        }
+
+        .ingredient-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            font-size: 0.85rem;
+        }
+
+        .ingredient-row:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .ingredient-left {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            max-width: 68%;
+        }
+
+        .flavor-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+
+        .flavor-text {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flavor-name {
+            font-weight: 600;
+            color: #fff;
+            line-height: 1.25;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .flavor-brand {
+            font-size: 0.72rem;
+            color: var(--text-muted);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ingredient-calc {
+            text-align: right;
             white-space: nowrap;
         }
 
-        .rating-badge i {
-            color: #ffd700;
-        }
-
-        .mix-concept {
-            font-size: 0.88rem;
-            color: var(--text-muted);
-            font-style: italic;
-            margin-bottom: 16px;
-            min-height: 42px;
-        }
-
-        .strength-meter {
-            margin-bottom: 16px;
-        }
-
-        .strength-meter-label {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.75rem;
-            color: var(--text-muted);
-            margin-bottom: 5px;
-        }
-
-        .strength-meter-bar {
-            height: 6px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 3px;
-            overflow: hidden;
-            display: flex;
-        }
-
-        .strength-meter-fill {
-            height: 100%;
-            border-radius: 3px;
-            transition: width 0.5s ease;
-        }
-
-        .ingredients-list {
-            margin-bottom: 16px;
-            background: rgba(0,0,0,0.35);
-            padding: 14px;
-            border-radius: 12px;
-            border: 1px solid rgba(255,255,255,0.05);
-        }
-
-        .ingredient-item {
-            margin-bottom: 10px;
-        }
-
-        .ingredient-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .ingredient-info {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            margin-bottom: 4px;
-        }
-
-        .ingredient-name {
-            font-weight: 600;
-            color: var(--text-main);
-        }
-
-        .ingredient-brand {
-            color: var(--text-muted);
-            font-size: 0.78rem;
-        }
-
-        .ingredient-amount {
+        .ingredient-percent {
             font-weight: 700;
             color: var(--gold-light);
+            font-size: 0.85rem;
         }
 
-        .progress-bar-bg {
-            height: 5px;
-            background: rgba(255,255,255,0.08);
-            border-radius: 3px;
-            overflow: hidden;
+        .ingredient-grams {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            font-weight: 600;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1px 5px;
+            border-radius: 4px;
+            margin-left: 4px;
         }
 
-        .progress-bar-fill {
-            height: 100%;
-            border-radius: 3px;
-        }
-
-        .craft-base-block {
-            background: rgba(0, 180, 216, 0.08);
-            border: 1px solid rgba(0, 180, 216, 0.3);
-            border-radius: 10px;
+        /* Craft infusion box */
+        .craft-infusion {
+            background: linear-gradient(135deg, rgba(0, 180, 216, 0.08) 0%, rgba(16, 185, 129, 0.05) 100%);
+            border: 1px solid rgba(0, 180, 216, 0.28);
+            border-radius: var(--radius-md);
             padding: 12px;
             margin-bottom: 16px;
             font-size: 0.82rem;
         }
 
-        .craft-base-title {
-            color: var(--craft-teal);
+        .craft-infusion-title {
+            color: var(--teal);
             font-weight: 700;
+            font-size: 0.74rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
             display: flex;
             align-items: center;
             gap: 6px;
             margin-bottom: 4px;
-            text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 0.5px;
         }
 
-        .craft-base-desc {
-            color: #d1f4ff;
+        .craft-infusion-text {
+            color: #c9f0f8;
             line-height: 1.4;
         }
 
-        .setup-specs {
+        /* Card footer with specs and copy action */
+        .specs-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            font-size: 0.8rem;
-            border-top: 1px solid rgba(255,255,255,0.08);
+            gap: 8px;
+            font-size: 0.78rem;
             padding-top: 14px;
+            border-top: 1px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 14px;
         }
 
-        .spec-item {
+        .spec-cell {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
             color: var(--text-muted);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
         }
 
-        .spec-item i {
+        .spec-cell i {
             color: var(--gold-primary);
-            width: 16px;
+            font-size: 0.78rem;
+            width: 14px;
             text-align: center;
         }
 
-        .spec-val {
-            color: var(--text-main);
+        .spec-val-strong {
+            color: var(--text-primary);
             font-weight: 600;
         }
 
-        .section-title {
-            font-family: var(--font-title);
-            font-size: 1.8rem;
-            color: #fff;
-            margin: 35px 0 25px;
+        .card-actions-bottom {
             display: flex;
-            align-items: center;
-            gap: 15px;
+            gap: 8px;
         }
 
-        .section-title::after {
+        .copy-recipe-btn {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid var(--border-glass);
+            color: var(--gold-light);
+            padding: 9px 14px;
+            border-radius: var(--radius-md);
+            font-size: 0.82rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .copy-recipe-btn:hover {
+            background: var(--gold-primary);
+            color: #07070a;
+            border-color: var(--gold-primary);
+        }
+
+        .empty-state {
+            grid-column: 1 / -1;
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--bg-card);
+            border: 1px dashed var(--border-glass);
+            border-radius: var(--radius-lg);
+        }
+
+        .empty-state i {
+            font-size: 3rem;
+            color: var(--gold-dark);
+            margin-bottom: 16px;
+        }
+
+        .empty-state h3 {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
+            color: #fff;
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            max-width: 400px;
+            margin: 0 auto 20px;
+        }
+
+        .toast-notify {
+            position: fixed;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            background: rgba(20, 20, 28, 0.95);
+            border: 1px solid var(--gold-primary);
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: var(--radius-pill);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px var(--gold-glow);
+            backdrop-filter: blur(20px);
+            z-index: 9999;
+            font-size: 0.88rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            pointer-events: none;
+            opacity: 0;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .toast-notify.visible {
+            transform: translateX(-50%) translateY(0);
+            opacity: 1;
+        }
+
+        .toast-notify i {
+            color: var(--gold-primary);
+        }
+
+        .section-header-grand {
+            font-family: var(--font-serif);
+            font-size: clamp(1.4rem, 3vw, 2.1rem);
+            color: #fff;
+            margin: 32px 0 20px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .section-header-grand::after {
             content: '';
             flex: 1;
             height: 1px;
-            background: linear-gradient(90deg, rgba(212, 175, 55, 0.4), transparent);
+            background: linear-gradient(90deg, var(--gold-primary), transparent);
         }
 
-        .section-title i {
+        .section-header-grand i {
             color: var(--gold-primary);
         }
 
-        .brand-grid {
+        .brand-catalog-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
-            gap: 25px;
+            grid-template-columns: 1fr;
+            gap: 20px;
         }
 
-        .brand-card {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .brand-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 12px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
-            padding-bottom: 10px;
-        }
-
-        .brand-name {
-            font-family: var(--font-title);
-            font-size: 1.35rem;
-            color: var(--gold-light);
-        }
-
-        .brand-origin {
-            font-size: 0.75rem;
-            background: rgba(255,255,255,0.06);
-            padding: 4px 10px;
-            border-radius: 20px;
-            color: var(--text-muted);
-            border: 1px solid rgba(255,255,255,0.1);
-        }
-
-        .lines-list {
-            margin-bottom: 12px;
-        }
-
-        .line-item {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            margin-bottom: 6px;
-            font-size: 0.88rem;
-        }
-
-        .line-badge {
-            background: rgba(212, 175, 55, 0.15);
-            color: var(--gold-primary);
-            padding: 2px 8px;
-            border-radius: 6px;
-            font-weight: 700;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-        }
-
-        .brand-meta {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 10px;
-            margin-top: 15px;
-            background: rgba(0,0,0,0.3);
-            padding: 12px;
-            border-radius: 10px;
-            font-size: 0.85rem;
-        }
-
-        .meta-label {
-            color: var(--text-muted);
-            display: block;
-            font-size: 0.75rem;
-        }
-
-        .meta-value {
-            color: var(--text-main);
-            font-weight: 600;
-        }
-
-        .protips-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
-            gap: 25px;
-        }
-
-        @media (max-width: 600px) {
-            .protips-grid {
-                grid-template-columns: 1fr;
+        @media (min-width: 768px) {
+            .brand-catalog-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
-        .tip-card {
-            border-left: 4px solid var(--gold-primary);
+        @media (min-width: 1150px) {
+            .brand-catalog-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
         }
 
-        .tip-card h3 {
-            font-family: var(--font-title);
+        .brand-showcase-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(16px);
+            transition: var(--transition);
+        }
+
+        .brand-showcase-card:hover {
+            border-color: var(--border-glow);
+            transform: translateY(-3px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .brand-card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 14px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding-bottom: 12px;
+        }
+
+        .brand-name-title {
+            font-family: var(--font-serif);
+            font-size: 1.4rem;
             color: var(--gold-light);
-            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .brand-flag {
+            font-size: 0.78rem;
+            background: rgba(255, 255, 255, 0.06);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 3px 10px;
+            border-radius: var(--radius-pill);
+            color: var(--text-secondary);
+        }
+
+        .brand-lines-wrapper {
+            margin-bottom: 16px;
+        }
+
+        .brand-line-row {
+            display: flex;
+            align-items: baseline;
+            gap: 8px;
+            margin-bottom: 8px;
+            font-size: 0.85rem;
+        }
+
+        .line-tag {
+            background: rgba(212, 175, 55, 0.15);
+            color: var(--gold-primary);
+            padding: 2px 7px;
+            border-radius: 5px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            flex-shrink: 0;
+        }
+
+        .brand-meta-matrix {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            background: rgba(0,0,0,0.4);
+            padding: 12px;
+            border-radius: var(--radius-md);
+            font-size: 0.82rem;
+        }
+
+        .matrix-label {
+            color: var(--text-muted);
+            font-size: 0.72rem;
+            display: block;
+        }
+
+        .matrix-val {
+            color: var(--text-primary);
+            font-weight: 700;
+        }
+
+        .secrets-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+        }
+
+        @media (min-width: 800px) {
+            .secrets-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .secret-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glass);
+            border-left: 4px solid var(--gold-primary);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            backdrop-filter: blur(16px);
+        }
+
+        .secret-card h3 {
+            font-family: var(--font-serif);
+            color: var(--gold-light);
+            font-size: 1.25rem;
             margin-bottom: 12px;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .tip-card p {
-            color: var(--text-muted);
+        .secret-card p {
+            color: var(--text-secondary);
             font-size: 0.9rem;
-            margin-bottom: 12px;
+            margin-bottom: 14px;
         }
 
-        .tip-card ul {
+        .secret-card ul {
             list-style: none;
         }
 
-        .tip-card li {
+        .secret-card li {
             position: relative;
             padding-left: 20px;
-            color: var(--text-main);
-            margin-bottom: 8px;
+            color: var(--text-primary);
+            margin-bottom: 10px;
             font-size: 0.88rem;
+            line-height: 1.45;
         }
 
-        .tip-card li::before {
-            content: '✦';
+        .secret-card li::before {
+            content: '◆';
             position: absolute;
             left: 0;
+            color: var(--gold-primary);
+            font-size: 0.7rem;
+            top: 2px;
+        }
+
+        .mobile-bottom-dock {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(12, 12, 18, 0.94);
+            border-top: 1px solid var(--border-glass);
+            padding: 8px 16px 12px;
+            z-index: 999;
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            box-shadow: 0 -5px 25px rgba(0, 0, 0, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .mobile-bottom-dock {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+            }
+        }
+
+        .dock-item {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 4px;
+            font-size: 0.68rem;
+            font-weight: 600;
+            cursor: pointer;
+            padding: 4px 8px;
+            transition: var(--transition);
+        }
+
+        .dock-item i {
+            font-size: 1.1rem;
+        }
+
+        .dock-item.active {
             color: var(--gold-primary);
         }
 
@@ -634,12 +1201,16 @@
         }
 
         footer {
-            margin-top: 70px;
+            margin-top: 60px;
             text-align: center;
-            padding: 25px 0;
-            border-top: 1px solid rgba(255,255,255,0.08);
+            padding: 30px 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.08);
             color: var(--text-muted);
-            font-size: 0.85rem;
+            font-size: 0.82rem;
+        }
+
+        footer strong {
+            color: var(--gold-light);
         }
     </style>
 </head>
@@ -647,223 +1218,382 @@
 
     <header>
         <div class="container">
-            <div class="brand-badge"><i class="fa-solid fa-crown"></i> Sommelier Craft Guild</div>
-            <h1>HOOKAH SOMMELIER GRAND LIBRARY</h1>
-            <p class="subtitle">100 Уникальных Авторских Забивок (Крепость 5–10/10), Калькулятор Граммовки и Справочник Табачных Линеек.</p>
-            
-            <div class="nav-tabs">
-                <button class="nav-btn active" onclick="switchTab('mixes')">
-                    <i class="fa-solid fa-flask"></i> Карта Миксов (<span id="totalMixesCount">100</span>)
-                </button>
-                <button class="nav-btn" onclick="switchTab('catalog')">
-                    <i class="fa-solid fa-boxes-stacked"></i> Каталог Табаков
-                </button>
-                <button class="nav-btn" onclick="switchTab('protips')">
-                    <i class="fa-solid fa-fire-burner"></i> Секреты Забивки
-                </button>
+            <div class="brand-crest">
+                <i class="fa-solid fa-crown"></i> Sommelier Craft Guild &bull; Grand Edition
             </div>
+            <h1>HOOKAH SOMMELIER GRAND LIBRARY</h1>
+            <p class="hero-desc">
+                100 Авторских Рецептур (Крепость 5–10/10), динамический калькулятор пропорций, фильтрация по мировым табачным брендам и секреты термо-экстракции.
+            </p>
+
+            <div class="stats-ribbon">
+                <div class="stat-badge"><i class="fa-solid fa-flask" style="color:var(--gold-primary);"></i> <strong>100</strong> Рецептов</div>
+                <div class="stat-badge"><i class="fa-solid fa-tags" style="color:var(--teal);"></i> <strong>11</strong> Премиум-брендов</div>
+                <div class="stat-badge"><i class="fa-solid fa-fire" style="color:var(--ruby);"></i> <strong>5.5–10</strong> Диапазон крепости</div>
+                <div class="stat-badge"><i class="fa-solid fa-wine-glass" style="color:var(--emerald);"></i> <strong>Liquid Craft</strong> Настои & Колбы</div>
+            </div>
+
+            <nav class="main-tabs">
+                <button class="tab-btn active" onclick="switchMainTab('mixes')">
+                    <i class="fa-solid fa-layer-group"></i> Карта Миксов <span class="tab-badge" id="tabMixesCount">100</span>
+                </button>
+                <button class="tab-btn" onclick="switchMainTab('catalog')">
+                    <i class="fa-solid fa-boxes-stacked"></i> Каталог Брендов
+                </button>
+                <button class="tab-btn" onclick="switchMainTab('protips')">
+                    <i class="fa-solid fa-fire-burner"></i> Секреты Сомелье
+                </button>
+                <button class="tab-btn" onclick="switchMainTab('favorites')">
+                    <i class="fa-solid fa-heart" style="color:var(--ruby);"></i> Избранное <span class="tab-badge" id="favCountBadge">0</span>
+                </button>
+            </nav>
         </div>
     </header>
 
     <main class="container">
 
-        <section id="tab-mixes">
-            <div class="controls-bar">
-                <div class="search-box">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" id="mixSearch" placeholder="Поиск по названию, бренду или вкусу..." oninput="filterMixes()">
-                </div>
+        <!-- TAB: MIXES VIEW -->
+        <section id="view-mixes">
 
-                <div class="filter-buttons">
-                    <button class="filter-btn active" onclick="setFilter('all', this)">Все (100)</button>
-                    <button class="filter-btn" onclick="setFilter('medium', this)">Medium (5-6)</button>
-                    <button class="filter-btn" onclick="setFilter('strong', this)">Strong (7-8)</button>
-                    <button class="filter-btn" onclick="setFilter('extra', this)">Extra Strong (8.5-9.5)</button>
-                    <button class="filter-btn" onclick="setFilter('overdose', this)">Overdose (10)</button>
-                    <button class="filter-btn" style="border-color: var(--craft-teal); color: var(--craft-teal);" onclick="setFilter('craft', this)"><i class="fa-solid fa-wine-glass"></i> Liquid & Fruit Craft</button>
-                </div>
-
-                <div class="gram-calculator-widget">
-                    <i class="fa-solid fa-scale-balanced" style="color: var(--gold-primary);"></i>
-                    <label for="bowlGram">Вес чаши:</label>
-                    <input type="number" id="bowlGram" value="18" min="5" max="40" oninput="calculateGrams()">
-                    <span style="font-size: 0.85rem; color: var(--gold-light); font-weight: bold;">г</span>
-                    <div class="gram-presets">
-                        <button class="preset-btn" onclick="setGramPreset(15)">15g</button>
-                        <button class="preset-btn" onclick="setGramPreset(18)">18g</button>
-                        <button class="preset-btn" onclick="setGramPreset(20)">20g</button>
-                        <button class="preset-btn" onclick="setGramPreset(25)">25g</button>
-                        <button class="preset-btn" onclick="setGramPreset(30)">30g</button>
+            <div class="control-panel">
+                <div class="control-row-main">
+                    <div class="search-wrapper">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="text" id="searchInput" class="search-input" placeholder="Поиск по названию, бренду (Bonche, Tangiers...), вкусу или концепту..." oninput="handleSearchInput()">
+                        <button id="searchClearBtn" class="search-clear-btn" onclick="clearSearch()" title="Очистить"><i class="fa-solid fa-xmark"></i></button>
                     </div>
+
+                    <div class="sort-select-wrapper">
+                        <select id="sortSelect" class="sort-select" onchange="applyFiltersAndSort()">
+                            <option value="default">Сортировка: По умолчанию (№)</option>
+                            <option value="rating-desc">По рейтингу (высокий → низкий)</option>
+                            <option value="strength-desc">По крепости (тяжелые → легкие)</option>
+                            <option value="strength-asc">По крепости (легкие → тяжелые)</option>
+                            <option value="reviews-desc">По отзывам сомелье</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down sort-icon-arrow"></i>
+                    </div>
+
+                    <div class="gram-widget">
+                        <div class="gram-label">
+                            <i class="fa-solid fa-scale-balanced" style="color:var(--gold-primary);"></i>
+                            <span>Чаша:</span>
+                        </div>
+                        <div class="stepper-box">
+                            <button class="step-btn" onclick="adjustGrams(-1)" title="Меньше">-</button>
+                            <input type="number" id="bowlGramInput" class="gram-input" value="18" min="5" max="45" oninput="applyGramsInput()">
+                            <span class="gram-unit">г</span>
+                            <button class="step-btn" onclick="adjustGrams(1)" title="Больше">+</button>
+                        </div>
+                        <div class="preset-pills">
+                            <button class="preset-pill" onclick="setGramValue(15)">15г</button>
+                            <button class="preset-pill active" onclick="setGramValue(18)">18г</button>
+                            <button class="preset-pill" onclick="setGramValue(20)">20г</button>
+                            <button class="preset-pill" onclick="setGramValue(25)">25г</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Brand Filter Slider -->
+                <div class="filter-section-title">
+                    <span><i class="fa-solid fa-tag"></i> Бренд Табака:</span>
+                    <span id="selectedBrandDisplay" style="color:var(--gold-light); font-weight:700;">Все бренды</span>
+                </div>
+                <div class="filter-chips-scroll" id="brandChipsContainer">
+                    <!-- Populated dynamically via JS -->
+                </div>
+
+                <!-- Flavor Profile Filter Slider -->
+                <div class="filter-section-title">
+                    <span><i class="fa-solid fa-lemon"></i> Профиль Вкуса:</span>
+                </div>
+                <div class="filter-chips-scroll" id="flavorChipsContainer">
+                    <button class="chip-btn active" data-flavor="all" onclick="setFlavorFilter('all', this)">Все вкусы</button>
+                    <button class="chip-btn" data-flavor="citrus" onclick="setFlavorFilter('citrus', this)">🍋 Цитрусовые</button>
+                    <button class="chip-btn" data-flavor="forest" onclick="setFlavorFilter('forest', this)">🌲 Хвоя & Лес</button>
+                    <button class="chip-btn" data-flavor="berries" onclick="setFlavorFilter('berries', this)">🍓 Ягоды</button>
+                    <button class="chip-btn" data-flavor="dessert" onclick="setFlavorFilter('dessert', this)">🍰 Десерты & Орехи</button>
+                    <button class="chip-btn" data-flavor="alcohol" onclick="setFlavorFilter('alcohol', this)">🍷 Алкоголь & Пряности</button>
+                    <button class="chip-btn" data-flavor="gastro" onclick="setFlavorFilter('gastro', this)">🥩 Гастрономия</button>
+                    <button class="chip-btn" data-flavor="tea" onclick="setFlavorFilter('tea', this)">🌿 Чайные & Травы</button>
+                    <button class="chip-btn" data-flavor="tropics" onclick="setFlavorFilter('tropics', this)">🥭 Тропики</button>
+                </div>
+
+                <!-- Strength Filter Slider -->
+                <div class="filter-section-title">
+                    <span><i class="fa-solid fa-fire"></i> Крепость & Специфика:</span>
+                </div>
+                <div class="filter-chips-scroll" id="strengthChipsContainer">
+                    <button class="chip-btn active" data-strength="all" onclick="setStrengthFilter('all', this)">Все уровни</button>
+                    <button class="chip-btn" data-strength="medium" onclick="setStrengthFilter('medium', this)">Medium (5.0 - 6.0)</button>
+                    <button class="chip-btn" data-strength="strong" onclick="setStrengthFilter('strong', this)">Strong (7.0 - 8.5)</button>
+                    <button class="chip-btn" data-strength="extra" onclick="setStrengthFilter('extra', this)">Extra Strong (8.6 - 9.5)</button>
+                    <button class="chip-btn" data-strength="overdose" onclick="setStrengthFilter('overdose', this)">Overdose (10 / 10)</button>
+                    <button class="chip-btn" data-strength="craft" onclick="setStrengthFilter('craft', this)" style="border-color: rgba(0, 180, 216, 0.4);"><i class="fa-solid fa-wine-glass" style="color:var(--teal);"></i> Liquid Craft</button>
+                </div>
+
+                <!-- Status row -->
+                <div class="filter-status-row">
+                    <div>
+                        Найдено рецептов: <strong id="resultsCountText" style="color:#fff;">100</strong> из 100
+                    </div>
+                    <button class="clear-filters-link" onclick="resetAllFilters()">
+                        <i class="fa-solid fa-rotate-left"></i> Сбросить все фильтры
+                    </button>
                 </div>
             </div>
 
-            <div class="mixes-grid" id="mixesContainer">
-                <!-- Dynamically populated 100 Mixes -->
-            </div>
-        </section>
-
-        <section id="tab-catalog" class="hidden">
-            <div class="section-title">
-                <i class="fa-solid fa-leaf"></i> Каталог Премиальных Брендов & Линеек
-            </div>
-            
-            <div class="brand-grid">
-                <div class="glass-card brand-card">
-                    <div>
-                        <div class="brand-header">
-                            <div class="brand-name">Tangiers</div>
-                            <div class="brand-origin">США 🇺🇸</div>
-                        </div>
-                        <div class="lines-list">
-                            <div class="line-item"><span class="line-badge">Noir</span> <span>Классическая немытая линия (Burley)</span></div>
-                            <div class="line-item"><span class="line-badge" style="background:rgba(157,78,221,0.2); color:var(--purple-strong);">Burley</span> <span>Максимальная крепость и никотиновый удар</span></div>
-                            <div class="line-item"><span class="line-badge" style="background:rgba(0,180,216,0.2); color:var(--craft-teal);">Birquq</span> <span>Мягкая термостойкая линия</span></div>
-                        </div>
-                    </div>
-                    <div class="brand-meta">
-                        <div><span class="meta-label">Сырье:</span><span class="meta-value">Unwashed Tobacco</span></div>
-                        <div><span class="meta-label">Крепость:</span><span class="meta-value">8 - 10 / 10</span></div>
-                    </div>
-                </div>
-
-                <div class="glass-card brand-card">
-                    <div>
-                        <div class="brand-header">
-                            <div class="brand-name">Bonche</div>
-                            <div class="brand-origin">Россия 🇷🇺</div>
-                        </div>
-                        <div class="lines-list">
-                            <div class="line-item"><span class="line-badge" style="background:rgba(157,78,221,0.2); color:var(--purple-strong);">Cigar Selection</span> <span>100% бленд сигарного листа</span></div>
-                            <div class="line-item"><span class="line-badge">Bonche 50</span> <span>Плотная линейка в 50г банках</span></div>
-                        </div>
-                    </div>
-                    <div class="brand-meta">
-                        <div><span class="meta-label">Сырье:</span><span class="meta-value">Cigar Leaf</span></div>
-                        <div><span class="meta-label">Крепость:</span><span class="meta-value">8 - 9.5 / 10</span></div>
-                    </div>
-                </div>
-
-                <div class="glass-card brand-card">
-                    <div>
-                        <div class="brand-header">
-                            <div class="brand-name">Satyr</div>
-                            <div class="brand-origin">Россия 🇷🇺</div>
-                        </div>
-                        <div class="lines-list">
-                            <div class="line-item"><span class="line-badge">Unflavored</span> <span>Ферментированный неоароматизированный лист</span></div>
-                            <div class="line-item"><span class="line-badge" style="background:rgba(255,159,28,0.2); color:var(--neon-amber);">High Aroma</span> <span>Алкогольная выдержка в бочках</span></div>
-                            <div class="line-item"><span class="line-badge" style="background:rgba(230,57,70,0.2); color:var(--ruby-red);">Platinum</span> <span>Премиальные крафтовые коллекции</span></div>
-                        </div>
-                    </div>
-                    <div class="brand-meta">
-                        <div><span class="meta-label">Сырье:</span><span class="meta-value">Burley / Oriental</span></div>
-                        <div><span class="meta-label">Крепость:</span><span class="meta-value">7.5 - 9.5 / 10</span></div>
-                    </div>
-                </div>
-
-                <div class="glass-card brand-card">
-                    <div>
-                        <div class="brand-header">
-                            <div class="brand-name">Element</div>
-                            <div class="brand-origin">Россия 🇷🇺</div>
-                        </div>
-                        <div class="lines-list">
-                            <div class="line-item"><span class="line-badge" style="background:rgba(0,180,216,0.2); color:#00b4d8;">Вода</span> <span>Средняя линия</span></div>
-                            <div class="line-item"><span class="line-badge" style="background:rgba(230,57,70,0.2); color:var(--ruby-red);">Земля</span> <span>Крепкая линия</span></div>
-                            <div class="line-item"><span class="line-badge" style="background:rgba(157,78,221,0.2); color:var(--purple-strong);">Огонь</span> <span>Экстра крепость (Cigar Blend)</span></div>
-                        </div>
-                    </div>
-                    <div class="brand-meta">
-                        <div><span class="meta-label">Сырье:</span><span class="meta-value">Burley/Cigar</span></div>
-                        <div><span class="meta-label">Крепость:</span><span class="meta-value">5 - 9.5 / 10</span></div>
-                    </div>
-                </div>
-
-                <div class="glass-card brand-card">
-                    <div>
-                        <div class="brand-header">
-                            <div class="brand-name">Darkside</div>
-                            <div class="brand-origin">Россия 🇷🇺</div>
-                        </div>
-                        <div class="lines-list">
-                            <div class="line-item"><span class="line-badge">Core</span> <span>Сбалансированная средняя линия</span></div>
-                            <div class="line-item"><span class="line-badge" style="background:rgba(230,57,70,0.2); color:var(--ruby-red);">Rare</span> <span>Повышенная крепость Burley</span></div>
-                        </div>
-                    </div>
-                    <div class="brand-meta">
-                        <div><span class="meta-label">Сырье:</span><span class="meta-value">Burley / Virginia</span></div>
-                        <div><span class="meta-label">Крепость:</span><span class="meta-value">5 - 8 / 10</span></div>
-                    </div>
-                </div>
-
-                <div class="glass-card brand-card">
-                    <div>
-                        <div class="brand-header">
-                            <div class="brand-name">BlackBurn</div>
-                            <div class="brand-origin">Россия 🇷🇺</div>
-                        </div>
-                        <div class="lines-list">
-                            <div class="line-item"><span class="line-badge">Standard</span> <span>Яркая фруктово-ягодная аромка</span></div>
-                            <div class="line-item"><span class="line-badge" style="background:rgba(230,57,70,0.2); color:var(--ruby-red);">Shock</span> <span>Экстремально кислая серия</span></div>
-                        </div>
-                    </div>
-                    <div class="brand-meta">
-                        <div><span class="meta-label">Сырье:</span><span class="meta-value">Toasted Burley</span></div>
-                        <div><span class="meta-label">Крепость:</span><span class="meta-value">6 - 8 / 10</span></div>
-                    </div>
-                </div>
-
-                <div class="glass-card brand-card">
-                    <div>
-                        <div class="brand-header">
-                            <div class="brand-name">Dogma & Sebero Black</div>
-                            <div class="brand-origin">Россия 🇷🇺</div>
-                        </div>
-                        <div class="lines-list">
-                            <div class="line-item"><span class="line-badge">Dogma</span> <span>Сигарное сырье и крафтовая ферментация</span></div>
-                            <div class="line-item"><span class="line-badge" style="background:rgba(230,57,70,0.2); color:var(--ruby-red);">Sebero Black</span> <span>Крепкий плотный Burley бленд</span></div>
-                        </div>
-                    </div>
-                    <div class="brand-meta">
-                        <div><span class="meta-label">Сырье:</span><span class="meta-value">Cigar / Burley</span></div>
-                        <div><span class="meta-label">Крепость:</span><span class="meta-value">7 - 9 / 10</span></div>
-                    </div>
-                </div>
+            <div class="mixes-grid" id="mixesCardsGrid">
+                <!-- Dynamically injected recipe cards -->
             </div>
         </section>
 
-        <section id="tab-protips" class="hidden">
-            <div class="section-title">
+        <section id="view-catalog" class="hidden">
+            <h2 class="section-header-grand">
+                <i class="fa-solid fa-leaf"></i> Премиальные Табачные Бренды & Линейки
+            </h2>
+            <div class="brand-catalog-grid">
+                
+                <div class="brand-showcase-card">
+                    <div>
+                        <div class="brand-card-top">
+                            <div>
+                                <h3 class="brand-name-title">Tangiers</h3>
+                                <span style="font-size:0.75rem; color:var(--text-muted);">Культовый американский немытый табак</span>
+                            </div>
+                            <span class="brand-flag">США 🇺🇸</span>
+                        </div>
+                        <div class="brand-lines-wrapper">
+                            <div class="brand-line-row"><span class="line-tag">Noir</span> <span>Базовая немытая линейка (Burley)</span></div>
+                            <div class="brand-line-row"><span class="line-tag" style="background:rgba(157,78,221,0.2); color:var(--purple);">Burley</span> <span>Максимальная крепость и тяжелый никотин</span></div>
+                            <div class="brand-line-row"><span class="line-tag" style="background:rgba(0,180,216,0.2); color:var(--teal);">Birquq</span> <span>Мягкая термостойкая серия с фруктовыми оттенками</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-meta-matrix">
+                        <div><span class="matrix-label">Сырье:</span><span class="matrix-val">Unwashed Burley</span></div>
+                        <div><span class="matrix-label">Крепость:</span><span class="matrix-val">8.5 – 10 / 10</span></div>
+                        <div><span class="matrix-label">Чаша:</span><span class="matrix-val">Harmony / Турка</span></div>
+                        <div><span class="matrix-label">Прогрев:</span><span class="matrix-val">Высокий (3-4 угля)</span></div>
+                    </div>
+                </div>
+
+                <div class="brand-showcase-card">
+                    <div>
+                        <div class="brand-card-top">
+                            <div>
+                                <h3 class="brand-name-title">Bonche</h3>
+                                <span style="font-size:0.75rem; color:var(--text-muted);">Элита сигарного блендинга</span>
+                            </div>
+                            <span class="brand-flag">Россия 🇷🇺</span>
+                        </div>
+                        <div class="brand-lines-wrapper">
+                            <div class="brand-line-row"><span class="line-tag" style="background:rgba(157,78,221,0.2); color:var(--purple);">Cigar Selection</span> <span>100% бленд выдержанного сигарного листа</span></div>
+                            <div class="brand-line-row"><span class="line-tag">Bonche 50</span> <span>Густые табачные ноты с благородной аромкой</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-meta-matrix">
+                        <div><span class="matrix-label">Сырье:</span><span class="matrix-val">100% Cigar Leaf</span></div>
+                        <div><span class="matrix-label">Крепость:</span><span class="matrix-val">8.0 – 9.5 / 10</span></div>
+                        <div><span class="matrix-label">Чаша:</span><span class="matrix-val">Убивашка / Турка</span></div>
+                        <div><span class="matrix-label">Прогрев:</span><span class="matrix-val">Плавный (4 угля 22)</span></div>
+                    </div>
+                </div>
+
+                <div class="brand-showcase-card">
+                    <div>
+                        <div class="brand-card-top">
+                            <div>
+                                <h3 class="brand-name-title">Satyr</h3>
+                                <span style="font-size:0.75rem; color:var(--text-muted);">Крафтовая алкогольная и ферментированная линейка</span>
+                            </div>
+                            <span class="brand-flag">Россия 🇷🇺</span>
+                        </div>
+                        <div class="brand-lines-wrapper">
+                            <div class="brand-line-row"><span class="line-tag">Unflavored</span> <span>Чистый табачный лист без химических аром</span></div>
+                            <div class="brand-line-row"><span class="line-tag" style="background:rgba(247,127,0,0.2); color:var(--amber);">High Aroma</span> <span>Выдержка в бочках из-под рома, виски, егеря</span></div>
+                            <div class="brand-line-row"><span class="line-tag" style="background:rgba(230,57,70,0.2); color:var(--ruby);">Platinum</span> <span>Сигарный лист с тонким ароматическим шлейфом</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-meta-matrix">
+                        <div><span class="matrix-label">Сырье:</span><span class="matrix-val">Burley / Oriental</span></div>
+                        <div><span class="matrix-label">Крепость:</span><span class="matrix-val">7.5 – 9.5 / 10</span></div>
+                        <div><span class="matrix-label">Чаша:</span><span class="matrix-val">Турка из глины</span></div>
+                        <div><span class="matrix-label">Прогрев:</span><span class="matrix-val">Жаростойкий</span></div>
+                    </div>
+                </div>
+
+                <div class="brand-showcase-card">
+                    <div>
+                        <div class="brand-card-top">
+                            <div>
+                                <h3 class="brand-name-title">Element</h3>
+                                <span style="font-size:0.75rem; color:var(--text-muted);">Концепция четырех стихий</span>
+                            </div>
+                            <span class="brand-flag">Россия 🇷🇺</span>
+                        </div>
+                        <div class="brand-lines-wrapper">
+                            <div class="brand-line-row"><span class="line-tag" style="background:rgba(0,180,216,0.2); color:var(--teal);">Вода</span> <span>Мягкий Burley для тонких вкусов</span></div>
+                            <div class="brand-line-row"><span class="line-tag" style="background:rgba(230,57,70,0.2); color:var(--ruby);">Земля</span> <span>Плотный насыщенный Burley</span></div>
+                            <div class="brand-line-row"><span class="line-tag" style="background:rgba(157,78,221,0.2); color:var(--purple);">Огонь</span> <span>Экстра сигарная линейка для ценителей</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-meta-matrix">
+                        <div><span class="matrix-label">Сырье:</span><span class="matrix-val">Burley & Cigar</span></div>
+                        <div><span class="matrix-label">Крепость:</span><span class="matrix-val">5.5 – 9.5 / 10</span></div>
+                        <div><span class="matrix-label">Чаша:</span><span class="matrix-val">Убивашка / Турка</span></div>
+                        <div><span class="matrix-label">Прогрев:</span><span class="matrix-val">3 угля 25мм</span></div>
+                    </div>
+                </div>
+
+                <div class="brand-showcase-card">
+                    <div>
+                        <div class="brand-card-top">
+                            <div>
+                                <h3 class="brand-name-title">Darkside</h3>
+                                <span style="font-size:0.75rem; color:var(--text-muted);">Индустриальный стандарт кальянного искусства</span>
+                            </div>
+                            <span class="brand-flag">Россия 🇷🇺</span>
+                        </div>
+                        <div class="brand-lines-wrapper">
+                            <div class="brand-line-row"><span class="line-tag">Core</span> <span>Сбалансированная средняя крепость</span></div>
+                            <div class="brand-line-row"><span class="line-tag" style="background:rgba(230,57,70,0.2); color:var(--ruby);">Rare</span> <span>Повышенная крепость Burley</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-meta-matrix">
+                        <div><span class="matrix-label">Сырье:</span><span class="matrix-val">Burley + Virginia</span></div>
+                        <div><span class="matrix-label">Крепость:</span><span class="matrix-val">6.0 – 8.0 / 10</span></div>
+                        <div><span class="matrix-label">Чаша:</span><span class="matrix-val">Любая (Универсал)</span></div>
+                        <div><span class="matrix-label">Прогрев:</span><span class="matrix-val">Средний / Высокий</span></div>
+                    </div>
+                </div>
+
+                <div class="brand-showcase-card">
+                    <div>
+                        <div class="brand-card-top">
+                            <div>
+                                <h3 class="brand-name-title">BlackBurn</h3>
+                                <span style="font-size:0.75rem; color:var(--text-muted);">Ярчайшая органолептика и серия Shock</span>
+                            </div>
+                            <span class="brand-flag">Россия 🇷🇺</span>
+                        </div>
+                        <div class="brand-lines-wrapper">
+                            <div class="brand-line-row"><span class="line-tag">Standard</span> <span>Мощная сочная фруктово-ягодная база</span></div>
+                            <div class="brand-line-row"><span class="line-tag" style="background:rgba(230,57,70,0.2); color:var(--ruby);">Shock</span> <span>Экстремально кислые эталонные вкусы</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-meta-matrix">
+                        <div><span class="matrix-label">Сырье:</span><span class="matrix-val">Toasted Burley</span></div>
+                        <div><span class="matrix-label">Крепость:</span><span class="matrix-val">6.5 – 8.0 / 10</span></div>
+                        <div><span class="matrix-label">Чаша:</span><span class="matrix-val">Турка / Убивашка</span></div>
+                        <div><span class="matrix-label">Прогрев:</span><span class="matrix-val">3 угля 25мм</span></div>
+                    </div>
+                </div>
+
+                <div class="brand-showcase-card">
+                    <div>
+                        <div class="brand-card-top">
+                            <div>
+                                <h3 class="brand-name-title">Dogma & Sebero</h3>
+                                <span style="font-size:0.75rem; color:var(--text-muted);">Глубокие древесные и сигарные профили</span>
+                            </div>
+                            <span class="brand-flag">Россия 🇷🇺</span>
+                        </div>
+                        <div class="brand-lines-wrapper">
+                            <div class="brand-line-row"><span class="line-tag">Dogma</span> <span>100% сигарное сырье и аутентичная зольность</span></div>
+                            <div class="brand-line-row"><span class="line-tag" style="background:rgba(230,57,70,0.2); color:var(--ruby);">Sebero Black</span> <span>Плотный вываренный Burley</span></div>
+                        </div>
+                    </div>
+                    <div class="brand-meta-matrix">
+                        <div><span class="matrix-label">Сырье:</span><span class="matrix-val">Cigar / Burley</span></div>
+                        <div><span class="matrix-label">Крепость:</span><span class="matrix-val">7.5 – 9.0 / 10</span></div>
+                        <div><span class="matrix-label">Чаша:</span><span class="matrix-val">Убивашка (Killer)</span></div>
+                        <div><span class="matrix-label">Прогрев:</span><span class="matrix-val">Равномерный</span></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="view-protips" class="hidden">
+            <h2 class="section-header-grand">
                 <i class="fa-solid fa-graduation-cap"></i> Физика Экстракции & Секреты Сомелье
-            </div>
-
-            <div class="protips-grid">
-                <div class="glass-card tip-card">
+            </h2>
+            <div class="secrets-grid">
+                
+                <div class="secret-card">
                     <h3><i class="fa-solid fa-flask-vial"></i> Термо-Экстракция в Колбе</h3>
-                    <p>Жидкость в колбе — не декор, а инструмент термодинамической экстракции.</p>
+                    <p>Жидкость в колбе не просто охлаждает дым — она меняет парциальное давление летучих эфирных соединений.</p>
                     <ul>
-                        <li><b>Теплые чайные отвары (40-50°C):</b> Не остужают дым резко, сохраняя тяжелые ароматические эфиры в летучем состоянии.</li>
-                        <li><b>Кислая среда (Соки 1:2):</b> Натуральные фруктовые кислоты подхватывают щелочные компоненты табачного пара, сглаживая жесткий удар по горлу.</li>
+                        <li><b>Теплые чайные отвары (40–45°C):</b> Не остужают пар до конденсации масел, сохраняя тяжелые сигарные и пряные молекулы в активной фазе вдоха.</li>
+                        <li><b>Кислотная среда (Фреши 1:2):</b> Фруктовые кислоты связывают щелочные фракции никотина, обеспечивая глубокий мягкий накур без першения.</li>
+                        <li><b>Минерализация:</b> Солоноватая вода усиливает вкусовые сосочки языка, раскрывая гастрономические миксы (сыры, беконы, гаспачо).</li>
                     </ul>
                 </div>
 
-                <div class="glass-card tip-card">
-                    <h3><i class="fa-solid fa-fire"></i> Плотность & Касание для Burley/Cigar</h3>
-                    <p>Физика работы со сверхкрепкими сортами.</p>
+                <div class="secret-card">
+                    <h3><i class="fa-solid fa-fire"></i> Плотность & Воздушный Колодец</h3>
+                    <p>Аэродинамика движения горячего воздуха внутри чаши — 80% успеха раскрытия крепких линеек.</p>
                     <ul>
-                        <li><b>Легкое Касание (Touch):</b> Верхний слой слегка запекается о калауд, удерживая никотиновую волну внутри чаши на первые 20 минут.</li>
-                        <li><b>Колодец в Эвил-чаше:</b> Сквозное отверстие по центру обеспечивает прямую конвекцию горячего воздуха через весь табачный пирог.</li>
+                        <li><b>Воздушный колодец:</b> Сквозное отверстие по центру прямотока (Турка/Evil) распределяет жар сквозь нижние слои табака, предотвращая перегрев верха.</li>
+                        <li><b>Легкое касание (Touch):</b> Создает защитную карамелизованную корочку, блокирующую резкий никотиновый удар в первые 10 минут.</li>
+                        <li><b>Прогрев на 4 углях с переходом на 3:</b> Разогревает тело глины до рабочей температуры без пережигания сиропа.</li>
                     </ul>
                 </div>
+
+                <div class="secret-card">
+                    <h3><i class="fa-solid fa-layer-group"></i> Секторная vs Слоистая Забивка</h3>
+                    <p>Как контролировать тайминг раскрытия сложного микса на протяжении 60 минут сессии.</p>
+                    <ul>
+                        <li><b>Секторами:</b> Идеально для контрастных вкусов (кислый + сладкий + пряный), когда требуется одновременный баланс всех ароматических нот.</li>
+                        <li><b>Слоями (Тяжелые вниз):</b> Гастрономия, сигара и алкогольные ноты укладываются на дно — они стартуют на 25-й минуте, когда верхушка отдаст яркий цитрус.</li>
+                    </ul>
+                </div>
+
+                <div class="secret-card">
+                    <h3><i class="fa-solid fa-temperature-arrow-up"></i> Контроль Жара для Сигарного Листа</h3>
+                    <p>Работа с Bonche, Dogma и Tangiers Burley требует ювелирного обращения с углем.</p>
+                    <ul>
+                        <li>Сигарный лист не переносит резких скачков температуры. Прогревайте чашу строго под колпаком 6-8 минут без тяги.</li>
+                        <li>Никогда не стряхивайте пепел с угля обратно на калауд: микропыль попадает в чашу и дает горечь благородному сырью.</li>
+                    </ul>
+                </div>
+
             </div>
         </section>
 
     </main>
 
+    <div class="mobile-bottom-dock">
+        <button class="dock-item active" onclick="switchMainTab('mixes')">
+            <i class="fa-solid fa-flask"></i>
+            <span>Миксы</span>
+        </button>
+        <button class="dock-item" onclick="focusSearchMobile()">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <span>Поиск</span>
+        </button>
+        <button class="dock-item" onclick="switchMainTab('favorites')">
+            <i class="fa-solid fa-heart"></i>
+            <span>Избранное</span>
+        </button>
+        <button class="dock-item" onclick="switchMainTab('catalog')">
+            <i class="fa-solid fa-boxes-stacked"></i>
+            <span>Бренды</span>
+        </button>
+        <button class="dock-item" onclick="switchMainTab('protips')">
+            <i class="fa-solid fa-fire-burner"></i>
+            <span>Секреты</span>
+        </button>
+    </div>
+
+    <div id="toastNotification" class="toast-notify">
+        <i class="fa-solid fa-circle-check"></i>
+        <span id="toastMessage">Рецептура скопирована в буфер</span>
+    </div>
+
     <footer>
         <div class="container">
-            <p><strong>HOOKAH SOMMELIER GRAND LIBRARY</strong> &copy; 2026 | 100 Уникальных Авторских Рецептур</p>
+            <p><strong>HOOKAH SOMMELIER GRAND LIBRARY</strong> &copy; 2026</p>
+            <p style="margin-top:6px; font-size:0.75rem;">100 Эксклюзивных Авторских Рецептур &bull; Разработано для истинных ценителей кальянной культуры</p>
         </div>
     </footer>
 
@@ -990,169 +1720,507 @@
             { id: 100, name: "Королевская Сигара: Вишня & Какао Бобы", rating: 4.99, reviews: 350, category: "extra", strengthNum: 9.5, concept: "Флагманский микс: 100% сигарный лист с дикой вишней и тертыми какао-бобами.", ingredients: [{ brand: "Bonche — Cigar Selection", flavor: "Vintage Cherry", percent: 45, color: "#e63946" }, { brand: "Bonche — Cigar Selection", flavor: "Cacao", percent: 35, color: "#3d2b1f" }, { brand: "Satyr — Unflavored", flavor: "Platinum Blend", percent: 20, color: "#aa7c11" }], craftBase: "В колбу: Натуральный отвар из вишневых листьев и палочек корицы.", hasCraft: true, bowl: "Турка из плотной глины", type: "Плотный оверпак с колодцем", heat: "4 угля 22mm / Калауд / Прогрев 8 мин" }
         ];
 
-        let currentFilter = 'all';
+        let state = {
+            activeTab: 'mixes',
+            searchTerm: '',
+            selectedBrand: 'all',
+            selectedFlavor: 'all',
+            selectedStrength: 'all',
+            sortBy: 'default',
+            bowlGrams: 18,
+            favorites: JSON.parse(localStorage.getItem('hookah_favorites_v1') || '[]')
+        };
 
-        function switchTab(tabId) {
-            document.querySelectorAll('main > section').forEach(sec => sec.classList.add('hidden'));
-            document.querySelectorAll('.nav-btn').forEach(btn => btn.classList.remove('active'));
+        const KNOWN_BRANDS = [
+            "Bonche", "Tangiers", "Satyr", "Element", "Darkside", 
+            "Musthave", "BlackBurn", "Spectrum", "Chabacco", "Dogma", "Sebero"
+        ];
 
-            document.getElementById(`tab-${tabId}`).classList.remove('hidden');
-            
-            const activeIndex = tabId === 'mixes' ? 0 : tabId === 'catalog' ? 1 : 2;
-            document.querySelectorAll('.nav-btn')[activeIndex].classList.add('active');
+        function getBrandMixCounts() {
+            const counts = {};
+            KNOWN_BRANDS.forEach(b => counts[b] = 0);
+            mixesData.forEach(mix => {
+                const uniqueBrandsInMix = new Set();
+                mix.ingredients.forEach(ing => {
+                    KNOWN_BRANDS.forEach(brand => {
+                        if (ing.brand.toLowerCase().includes(brand.toLowerCase())) {
+                            uniqueBrandsInMix.add(brand);
+                        }
+                    });
+                });
+                uniqueBrandsInMix.forEach(b => counts[b] = (counts[b] || 0) + 1);
+            });
+            return counts;
         }
 
-        function renderMixes() {
-            const container = document.getElementById('mixesContainer');
-            const searchVal = document.getElementById('mixSearch').value.toLowerCase();
-            const bowlWeight = parseFloat(document.getElementById('bowlGram').value) || 18;
+        function populateBrandChips() {
+            const container = document.getElementById('brandChipsContainer');
+            const counts = getBrandMixCounts();
+            
+            let html = `<button class="chip-btn active" data-brand="all" onclick="setBrandFilter('all', this)">Все бренды <span class="chip-count">${mixesData.length}</span></button>`;
+            
+            KNOWN_BRANDS.forEach(brand => {
+                const count = counts[brand] || 0;
+                html += `<button class="chip-btn" data-brand="${brand}" onclick="setBrandFilter('${brand}', this)">${brand} <span class="chip-count">${count}</span></button>`;
+            });
 
-            container.innerHTML = '';
+            container.innerHTML = html;
+        }
 
-            const filtered = mixesData.filter(mix => {
-                if (currentFilter === 'medium' && mix.category !== 'medium') return false;
-                if (currentFilter === 'strong' && mix.category !== 'strong') return false;
-                if (currentFilter === 'extra' && mix.category !== 'extra') return false;
-                if (currentFilter === 'overdose' && mix.category !== 'overdose') return false;
-                if (currentFilter === 'craft' && !mix.hasCraft) return false;
+        function matchesFlavorProfile(mix, flavorCat) {
+            if (flavorCat === 'all') return true;
+            const textToTest = (mix.name + " " + mix.concept + " " + mix.ingredients.map(i => i.flavor).join(" ")).toLowerCase();
+            
+            const profiles = {
+                citrus: ["лимон", "лайм", "бергамот", "грейпфрут", "bergamonstr", "lemon", "lime", "grapefruit", "yuzu", "цитрус", "mimon"],
+                forest: ["хвоя", "ель", "сосна", "лес", "кедр", "можжевельник", "fir", "pine", "needles", "forest", "wood"],
+                berries: ["малин", "черник", "смородин", "клюкв", "земляник", "бузин", "ежевик", "вишн", "слив", "raspberry", "blueberry", "blackcurrant", "cranberry", "elderberry", "brambleberry", "cherry", "plum", "currant", "wildberry"],
+                dessert: ["чизкейк", "пирог", "шоколад", "какао", "карамель", "орех", "фисташк", "печень", "нуга", "торт", "мороженое", "сливк", "biscuit", "cheesecake", "cookie", "cake", "tart", "pie", "chocolate", "cacao", "cocoa", "caramel", "pistachio", "cream", "nut", "gelato", "muffin"],
+                alcohol: ["джин", "ром", "бурбон", "виски", "портвейн", "стаут", "егер", "коньяк", "квас", "глинтвейн", "абсент", "ликер", "jäger", "rum", "bourbon", "whisky", "porto", "stout", "guinness", "cognac", "kvas", "wine", "absinthe", "кориц", "гвоздик", "кардамон", "cinnamon", "cardamom", "ginger", "чили", "chilli", "pepper"],
+                gastro: ["сыр", "пармезан", "бекон", "гаспачо", "томат", "хлеб", "васаби", "огурец", "трюфель", "попкорн", "начос", "cheese", "parmesan", "bacon", "gazpacho", "truffle", "wasabi", "cucumber", "popcorn", "bread", "rye"],
+                tea: ["чай", "улун", "сенча", "тархун", "базилик", "лаванда", "жасмин", "розмарин", "мята", "эвкалипт", "tea", "oolong", "sencha", "tarragon", "basil", "lavender", "jasmine", "rosemary", "mint", "eucalyptus", "lemongrass", "вербен"],
+                tropics: ["манго", "маракуйя", "ананас", "драгонфрут", "гуава", "папайя", "кактус", "дыня", "кокос", "рамбутан", "mango", "passion fruit", "pineapple", "pitaya", "guava", "papaya", "cactus", "melon", "coconut", "rambutan", "maracuja"]
+            };
 
-                if (searchVal) {
-                    const inName = mix.name.toLowerCase().includes(searchVal);
-                    const inConcept = mix.concept.toLowerCase().includes(searchVal);
-                    const inIngr = mix.ingredients.some(i => 
-                        i.brand.toLowerCase().includes(searchVal) || 
-                        i.flavor.toLowerCase().includes(searchVal)
+            const keywords = profiles[flavorCat] || [];
+            return keywords.some(k => textToTest.includes(k));
+        }
+
+        function getFilteredMixes() {
+            return mixesData.filter(mix => {
+                // Main Tab Favorites check
+                if (state.activeTab === 'favorites') {
+                    if (!state.favorites.includes(mix.id)) return false;
+                }
+
+                // Brand filter
+                if (state.selectedBrand !== 'all') {
+                    const hasBrand = mix.ingredients.some(ing => 
+                        ing.brand.toLowerCase().includes(state.selectedBrand.toLowerCase())
                     );
-                    const inCraft = mix.craftBase && mix.craftBase.toLowerCase().includes(searchVal);
-                    return inName || inConcept || inIngr || inCraft;
+                    if (!hasBrand) return false;
+                }
+
+                // Flavor filter
+                if (!matchesFlavorProfile(mix, state.selectedFlavor)) {
+                    return false;
+                }
+
+                // Strength filter
+                if (state.selectedStrength === 'medium' && (mix.strengthNum < 5.0 || mix.strengthNum > 6.5)) return false;
+                if (state.selectedStrength === 'strong' && (mix.strengthNum < 7.0 || mix.strengthNum > 8.5)) return false;
+                if (state.selectedStrength === 'extra' && (mix.strengthNum < 8.6 || mix.strengthNum > 9.5)) return false;
+                if (state.selectedStrength === 'overdose' && mix.strengthNum < 9.8) return false;
+                if (state.selectedStrength === 'craft' && !mix.hasCraft) return false;
+
+                // Live search query
+                if (state.searchTerm) {
+                    const q = state.searchTerm.toLowerCase();
+                    const inName = mix.name.toLowerCase().includes(q);
+                    const inConcept = mix.concept.toLowerCase().includes(q);
+                    const inBowl = mix.bowl.toLowerCase().includes(q);
+                    const inCraft = mix.craftBase && mix.craftBase.toLowerCase().includes(q);
+                    const inIngr = mix.ingredients.some(i => 
+                        i.brand.toLowerCase().includes(q) || 
+                        i.flavor.toLowerCase().includes(q)
+                    );
+                    if (!inName && !inConcept && !inBowl && !inCraft && !inIngr) return false;
                 }
 
                 return true;
             });
+        }
 
-            if (filtered.length === 0) {
-                container.innerHTML = `<div style="grid-column: 1/-1; text-align: center; color: var(--text-muted); padding: 50px;">
-                    <i class="fa-solid fa-ban" style="font-size: 2.2rem; margin-bottom: 12px; color: var(--ruby-red);"></i>
-                    <p style="font-size: 1.1rem;">Миксы по вашему запросу не найдены.</p>
-                </div>`;
+        function sortMixesList(list) {
+            const sorted = [...list];
+            if (state.sortBy === 'rating-desc') {
+                sorted.sort((a, b) => b.rating - a.rating || b.reviews - a.reviews);
+            } else if (state.sortBy === 'strength-desc') {
+                sorted.sort((a, b) => b.strengthNum - a.strengthNum);
+            } else if (state.sortBy === 'strength-asc') {
+                sorted.sort((a, b) => a.strengthNum - b.strengthNum);
+            } else if (state.sortBy === 'reviews-desc') {
+                sorted.sort((a, b) => b.reviews - a.reviews);
+            } else {
+                sorted.sort((a, b) => a.id - b.id);
+            }
+            return sorted;
+        }
+
+        function renderRecipeCards() {
+            const container = document.getElementById('mixesCardsGrid');
+            const filtered = getFilteredMixes();
+            const sorted = sortMixesList(filtered);
+
+            // Update UI Counters
+            document.getElementById('resultsCountText').innerText = sorted.length;
+            if (state.activeTab === 'mixes') {
+                document.getElementById('tabMixesCount').innerText = sorted.length;
+            }
+
+            if (sorted.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <i class="fa-solid fa-wine-bottle"></i>
+                        <h3>Рецептуры не найдены</h3>
+                        <p>Ни один микс не соответствует заданным критериям фильтрации или поисковому запросу.</p>
+                        <button class="clear-filters-link" onclick="resetAllFilters()" style="font-size:0.95rem;">
+                            <i class="fa-solid fa-rotate-left"></i> Сбросить фильтры
+                        </button>
+                    </div>
+                `;
                 return;
             }
 
-            filtered.forEach(mix => {
-                let barColor = 'var(--neon-amber)';
-                if (mix.strengthNum >= 7) barColor = 'var(--ruby-red)';
-                if (mix.strengthNum >= 8.5) barColor = 'var(--purple-strong)';
+            let htmlBuffer = '';
 
-                let ingredientsHTML = mix.ingredients.map(ing => {
-                    const grams = ((ing.percent / 100) * bowlWeight).toFixed(1);
-                    return `
-                        <div class="ingredient-item">
-                            <div class="ingredient-info">
-                                <div>
-                                    <span class="ingredient-name">${ing.flavor}</span>
-                                    <span class="ingredient-brand">(${ing.brand})</span>
-                                </div>
-                                <div class="ingredient-amount">
-                                    ${ing.percent}% <span style="font-size:0.75rem; color:var(--text-muted);">(${grams}g)</span>
+            sorted.forEach(mix => {
+                const isFav = state.favorites.includes(mix.id);
+                const bowlWeight = state.bowlGrams;
+
+                // Strength color coding
+                let strengthColorClass = 'filled-medium';
+                if (mix.strengthNum >= 7.0 && mix.strengthNum < 8.6) strengthColorClass = 'filled-strong';
+                if (mix.strengthNum >= 8.6) strengthColorClass = 'filled-extra';
+
+                // Segmented strength gauge (10 steps)
+                let segmentsHtml = '';
+                const activeSegments = Math.round(mix.strengthNum);
+                for (let i = 1; i <= 10; i++) {
+                    const isFilled = i <= activeSegments;
+                    segmentsHtml += `<div class="strength-seg ${isFilled ? strengthColorClass : ''}"></div>`;
+                }
+
+                // Blend Ratio Ribbon (Top Bar)
+                let ratioBarHtml = '<div class="blend-ratio-bar">';
+                mix.ingredients.forEach(ing => {
+                    ratioBarHtml += `<div class="blend-ratio-slice" style="width: ${ing.percent}%; background-color: ${ing.color};" title="${ing.flavor}: ${ing.percent}%"></div>`;
+                });
+                ratioBarHtml += '</div>';
+
+                // Ingredients list with dynamically calculated grams
+                let ingrRowsHtml = '';
+                mix.ingredients.forEach(ing => {
+                    const exactGrams = ((ing.percent / 100) * bowlWeight).toFixed(1);
+                    ingrRowsHtml += `
+                        <div class="ingredient-row">
+                            <div class="ingredient-left">
+                                <span class="flavor-dot" style="background-color: ${ing.color};"></span>
+                                <div class="flavor-text">
+                                    <span class="flavor-name">${ing.flavor}</span>
+                                    <span class="flavor-brand">${ing.brand}</span>
                                 </div>
                             </div>
-                            <div class="progress-bar-bg">
-                                <div class="progress-bar-fill" style="width: ${ing.percent}%; background-color: ${ing.color};"></div>
+                            <div class="ingredient-calc">
+                                <span class="ingredient-percent">${ing.percent}%</span>
+                                <span class="ingredient-grams">${exactGrams}г</span>
                             </div>
                         </div>
                     `;
-                }).join('');
+                });
 
-                let craftHTML = '';
+                // Craft extraction box (Liquid / Fruit craft)
+                let craftHtml = '';
                 if (mix.craftBase) {
-                    craftHTML = `
-                        <div class="craft-base-block">
-                            <div class="craft-base-title">
-                                <i class="fa-solid fa-wine-glass"></i> Секрет Экстракции & Колба/Чаша:
+                    craftHtml = `
+                        <div class="craft-infusion">
+                            <div class="craft-infusion-title">
+                                <i class="fa-solid fa-wine-glass"></i> Секрет Экстракции & Колба:
                             </div>
-                            <div class="craft-base-desc">${mix.craftBase}</div>
+                            <div class="craft-infusion-text">${mix.craftBase}</div>
                         </div>
                     `;
                 }
 
-                const cardHTML = `
-                    <div class="glass-card mix-card">
+                htmlBuffer += `
+                    <div class="recipe-card" id="recipe-card-${mix.id}">
                         <div>
-                            <div class="mix-header">
-                                <div>
-                                    <span class="mix-id">MIX #${mix.id}</span>
-                                    <h3 class="mix-title">${mix.name}</h3>
-                                </div>
-                                <div class="rating-badge">
-                                    <i class="fa-solid fa-star"></i> ${mix.rating} <span style="font-size:0.72rem; opacity:0.8;">(${mix.reviews})</span>
-                                </div>
-                            </div>
-                            <p class="mix-concept">"${mix.concept}"</p>
-
-                            <div class="strength-meter">
-                                <div class="strength-meter-label">
-                                    <span>Уровень крепости</span>
-                                    <span style="font-weight:700; color:var(--text-main);">${mix.strengthNum} / 10</span>
-                                </div>
-                                <div class="strength-meter-bar">
-                                    <div class="strength-meter-fill" style="width: ${mix.strengthNum * 10}%; background: ${barColor};"></div>
+                            <div class="card-top-bar">
+                                <span class="mix-serial">№${String(mix.id).padStart(3, '0')}</span>
+                                <div class="card-actions">
+                                    <div class="score-badge">
+                                        <i class="fa-solid fa-star"></i> ${mix.rating.toFixed(1)}
+                                        <span style="opacity:0.75; font-size:0.7rem;">(${mix.reviews})</span>
+                                    </div>
+                                    <button class="fav-btn ${isFav ? 'active' : ''}" onclick="toggleFavorite(${mix.id}, event)" title="${isFav ? 'Удалить из избранного' : 'Добавить в избранное'}">
+                                        <i class="${isFav ? 'fa-solid' : 'fa-regular'} fa-heart"></i>
+                                    </button>
                                 </div>
                             </div>
 
-                            <div class="ingredients-list">
-                                ${ingredientsHTML}
+                            <h3 class="recipe-title">${mix.name}</h3>
+                            <p class="tasting-notes">"${mix.concept}"</p>
+
+                            <div class="strength-indicator">
+                                <div class="strength-header">
+                                    <span>Интенсивность никотина</span>
+                                    <span class="strength-val">
+                                        <i class="fa-solid fa-fire flame-icon"></i> ${mix.strengthNum.toFixed(1)} / 10
+                                    </span>
+                                </div>
+                                <div class="strength-segments">
+                                    ${segmentsHtml}
+                                </div>
                             </div>
 
-                            ${craftHTML}
+                            ${ratioBarHtml}
+
+                            <div class="ingredients-box">
+                                ${ingrRowsHtml}
+                            </div>
+
+                            ${craftHtml}
                         </div>
 
                         <div>
-                            <div class="setup-specs">
-                                <div class="spec-item">
+                            <div class="specs-grid">
+                                <div class="spec-cell" title="${mix.bowl}">
                                     <i class="fa-solid fa-bowl-food"></i>
-                                    <span>Чаша: <span class="spec-val">${mix.bowl}</span></span>
+                                    <span>Чаша: <strong class="spec-val-strong">${mix.bowl}</strong></span>
                                 </div>
-                                <div class="spec-item">
+                                <div class="spec-cell" title="${mix.type}">
                                     <i class="fa-solid fa-hand"></i>
-                                    <span>Тип: <span class="spec-val">${mix.type}</span></span>
+                                    <span>Укладка: <strong class="spec-val-strong">${mix.type}</strong></span>
                                 </div>
-                                <div class="spec-item" style="grid-column: 1/-1;">
-                                    <i class="fa-solid fa-fire"></i>
-                                    <span>Прогрев: <span class="spec-val">${mix.heat}</span></span>
+                                <div class="spec-cell" style="grid-column: 1 / -1;" title="${mix.heat}">
+                                    <i class="fa-solid fa-temperature-three-quarters"></i>
+                                    <span>Жар: <strong class="spec-val-strong">${mix.heat}</strong></span>
                                 </div>
+                            </div>
+
+                            <div class="card-actions-bottom">
+                                <button class="copy-recipe-btn" onclick="copyRecipeDetails(${mix.id})">
+                                    <i class="fa-regular fa-copy"></i> Скопировать рецепт (${bowlWeight}г)
+                                </button>
                             </div>
                         </div>
                     </div>
                 `;
+            });
 
-                container.insertAdjacentHTML('beforeend', cardHTML);
+            container.innerHTML = htmlBuffer;
+        }
+
+        function setBrandFilter(brand, elem) {
+            state.selectedBrand = brand;
+            document.querySelectorAll('#brandChipsContainer .chip-btn').forEach(btn => btn.classList.remove('active'));
+            elem.classList.add('active');
+            document.getElementById('selectedBrandDisplay').innerText = brand === 'all' ? 'Все бренды' : brand;
+            renderRecipeCards();
+        }
+
+        function setFlavorFilter(flavor, elem) {
+            state.selectedFlavor = flavor;
+            document.querySelectorAll('#flavorChipsContainer .chip-btn').forEach(btn => btn.classList.remove('active'));
+            elem.classList.add('active');
+            renderRecipeCards();
+        }
+
+        function setStrengthFilter(strength, elem) {
+            state.selectedStrength = strength;
+            document.querySelectorAll('#strengthChipsContainer .chip-btn').forEach(btn => btn.classList.remove('active'));
+            elem.classList.add('active');
+            renderRecipeCards();
+        }
+
+        function handleSearchInput() {
+            const input = document.getElementById('searchInput');
+            state.searchTerm = input.value.trim();
+            const clearBtn = document.getElementById('searchClearBtn');
+            clearBtn.style.display = state.searchTerm.length > 0 ? 'block' : 'none';
+            renderRecipeCards();
+        }
+
+        function clearSearch() {
+            document.getElementById('searchInput').value = '';
+            state.searchTerm = '';
+            document.getElementById('searchClearBtn').style.display = 'none';
+            renderRecipeCards();
+        }
+
+        function applyFiltersAndSort() {
+            state.sortBy = document.getElementById('sortSelect').value;
+            renderRecipeCards();
+        }
+
+        function adjustGrams(delta) {
+            const input = document.getElementById('bowlGramInput');
+            let val = parseInt(input.value) || 18;
+            val = Math.max(5, Math.min(45, val + delta));
+            input.value = val;
+            state.bowlGrams = val;
+            updatePresetPillsActive(val);
+            renderRecipeCards();
+        }
+
+        function setGramValue(val) {
+            document.getElementById('bowlGramInput').value = val;
+            state.bowlGrams = val;
+            updatePresetPillsActive(val);
+            renderRecipeCards();
+        }
+
+        function applyGramsInput() {
+            const val = parseInt(document.getElementById('bowlGramInput').value) || 18;
+            state.bowlGrams = Math.max(5, Math.min(45, val));
+            updatePresetPillsActive(state.bowlGrams);
+            renderRecipeCards();
+        }
+
+        function updatePresetPillsActive(val) {
+            document.querySelectorAll('.preset-pill').forEach(pill => {
+                const num = parseInt(pill.innerText);
+                pill.classList.toggle('active', num === val);
             });
         }
 
-        function setFilter(filterType, btnElem) {
-            currentFilter = filterType;
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            btnElem.classList.add('active');
-            renderMixes();
+        function resetAllFilters() {
+            state.searchTerm = '';
+            state.selectedBrand = 'all';
+            state.selectedFlavor = 'all';
+            state.selectedStrength = 'all';
+            state.sortBy = 'default';
+
+            document.getElementById('searchInput').value = '';
+            document.getElementById('searchClearBtn').style.display = 'none';
+            document.getElementById('sortSelect').value = 'default';
+            document.getElementById('selectedBrandDisplay').innerText = 'Все бренды';
+
+            document.querySelectorAll('.chip-btn').forEach(btn => {
+                if (btn.dataset.brand === 'all' || btn.dataset.flavor === 'all' || btn.dataset.strength === 'all') {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+
+            renderRecipeCards();
+            showToast('Все фильтры сброшены к начальным значениям');
         }
 
-        function filterMixes() {
-            renderMixes();
+        function toggleFavorite(id, event) {
+            event.stopPropagation();
+            const index = state.favorites.indexOf(id);
+            if (index > -1) {
+                state.favorites.splice(index, 1);
+                showToast(`Микс №${id} удален из избранного`);
+            } else {
+                state.favorites.push(id);
+                showToast(`Микс №${id} добавлен в избранное`);
+            }
+            localStorage.setItem('hookah_favorites_v1', JSON.stringify(state.favorites));
+            updateFavBadges();
+            renderRecipeCards();
         }
 
-        function calculateGrams() {
-            renderMixes();
+        function updateFavBadges() {
+            const count = state.favorites.length;
+            document.getElementById('favCountBadge').innerText = count;
         }
 
-        function setGramPreset(grams) {
-            document.getElementById('bowlGram').value = grams;
-            renderMixes();
+        function switchMainTab(tab) {
+            state.activeTab = tab;
+
+            document.getElementById('view-mixes').classList.add('hidden');
+            document.getElementById('view-catalog').classList.add('hidden');
+            document.getElementById('view-protips').classList.add('hidden');
+
+            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+            document.querySelectorAll('.dock-item').forEach(btn => btn.classList.remove('active'));
+
+            if (tab === 'mixes' || tab === 'favorites') {
+                document.getElementById('view-mixes').classList.remove('hidden');
+                const idx = tab === 'mixes' ? 0 : 3;
+                document.querySelectorAll('.tab-btn')[idx]?.classList.add('active');
+                renderRecipeCards();
+            } else if (tab === 'catalog') {
+                document.getElementById('view-catalog').classList.remove('hidden');
+                document.querySelectorAll('.tab-btn')[1]?.classList.add('active');
+            } else if (tab === 'protips') {
+                document.getElementById('view-protips').classList.remove('hidden');
+                document.querySelectorAll('.tab-btn')[2]?.classList.add('active');
+            }
+
+            // Mobile Dock Sync
+            const dockItems = document.querySelectorAll('.dock-item');
+            if (tab === 'mixes') dockItems[0]?.classList.add('active');
+            if (tab === 'favorites') dockItems[2]?.classList.add('active');
+            if (tab === 'catalog') dockItems[3]?.classList.add('active');
+            if (tab === 'protips') dockItems[4]?.classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        window.onload = function() {
-            document.getElementById('totalMixesCount').innerText = mixesData.length;
-            renderMixes();
-        };
+        function focusSearchMobile() {
+            switchMainTab('mixes');
+            const searchInput = document.getElementById('searchInput');
+            searchInput.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            searchInput.focus();
+        }
+
+        function copyRecipeDetails(id) {
+            const mix = mixesData.find(m => m.id === id);
+            if (!mix) return;
+
+            const bowlWeight = state.bowlGrams;
+            let text = `👑 [Hookah Sommelier] Рецепт №${mix.id}: ${mix.name}\n`;
+            text += `⭐ Рейтинг: ${mix.rating}/5 | Крепость: ${mix.strengthNum}/10\n`;
+            text += `📜 Концепт: "${mix.concept}"\n\n`;
+            text += `⚖️ Пропорции на чашу (${bowlWeight}г):\n`;
+            
+            mix.ingredients.forEach(ing => {
+                const grams = ((ing.percent / 100) * bowlWeight).toFixed(1);
+                text += `• ${ing.flavor} (${ing.brand}) — ${ing.percent}% (${grams}г)\n`;
+            });
+
+            if (mix.craftBase) {
+                text += `\n🧪 Секрет экстракции в колбу: ${mix.craftBase}\n`;
+            }
+
+            text += `\n🛠 Оборудование:\n`;
+            text += `• Чаша: ${mix.bowl}\n`;
+            text += `• Забивка: ${mix.type}\n`;
+            text += `• Прогрев: ${mix.heat}\n`;
+
+            copyTextToClipboard(text);
+            showToast(`Рецепт "${mix.name}" скопирован в буфер!`);
+        }
+
+        function copyTextToClipboard(text) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.left = "-999999px";
+            textArea.style.top = "-999999px";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy');
+            } catch (err) {
+                console.error("Ошибка при копировании", err);
+            }
+            document.body.removeChild(textArea);
+        }
+
+        let toastTimeout = null;
+        function showToast(message) {
+            const toast = document.getElementById('toastNotification');
+            const toastMsg = document.getElementById('toastMessage');
+            toastMsg.innerText = message;
+            toast.classList.add('visible');
+
+            if (toastTimeout) clearTimeout(toastTimeout);
+            toastTimeout = setTimeout(() => {
+                toast.classList.remove('visible');
+            }, 3000);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            populateBrandChips();
+            updateFavBadges();
+            renderRecipeCards();
+        });
     </script>
 </body>
 </html>
