@@ -19,13 +19,6 @@ An interactive, dark-themed single-page web application designed for professiona
 
 ---
 
-## 🚀 Live Demo
-
-You can view the live interactive version directly via GitHub Pages:
-`https://<your-github-username>.github.io/hookah-mixes/`
-
----
-
 ## 🛠️ Tech Stack
 
 - **HTML5 & Vanilla JavaScript:** High performance, no external framework dependencies.
